@@ -28,59 +28,79 @@ An app to be aware of environmental issues and take 21 day challenges to make an
 
 # Client / Frontend
 
-## React Router Routes (React App)
+## React Router Routes (React App) That we call in the App.js
 
 Distinguish Between Public and Private (protected) Routes
  - PublicRoute 
  - PrivateRoute
 
-| Path                      | Component                      | Permissions | Behavior                                                     |
-| ------------------------- | --------------------           | ----------- | ------------------------------------------------------------ |
-| `/`                       | HomePage                       | public `<PublicRoute>`      | Home page                                        |
-| `/signup`                 | SignupPage                     | public `<PublicRoute>`      | Signup form, login, 
 
-| `/login`                  | LoginPage                      | anon only `<AnonRoute>`     | Login form, link to signup, navigate to homepage after login  |
-| `/logout`                 | n/a                            | user only `<PrivateRoute>`  | Navigate to homepage after logout, expire session             |
-| `/backlog/series`         | NavBar, ElementList, FooterBar | user only `<PrivateRoute>`  | Shows all tv series on backlog                                |
-| `/backlog/films`          | NavBar, ElementList, FooterBar | user only `<PrivateRoute>`  | Shows all films on backlog                                    |
-| `/backlog/games`          | NavBar, ElementList, FooterBar | user only `<PrivateRoute>`  | Shows all games on backlog                                    |
-| `/search/series`          | SearchForm, SearchResults      | user only  `<PrivateRoute>` | Search a tv series to be added                                |
-| `/search/films`           | SearchForm, SearchResults      | user only `<PrivateRoute>`  | Search a film to be added                                     |
-| `/search/games`           | SearchForm, SearchResults      | user only `<PrivateRoute>`  | Search a game to be added                                     |
-| `/add/:id`                | ElementInfo                    | user only `<PrivateRoute>`  | Add an element to the backlog                                 |
-| `/profile`                | Profile, Stats                 | user only  `<PrivateRoute>` | Check profile with stat information                           |
-| `/done/series`            | Done list for Series           | user only  `<PrivateRoute>` | Shows all tv series finished                                  |
-| `/done/films`             | Done list for films            | user only `<PrivateRoute>`  | Shows all films finished                                      |
-| `/done/games`             | Done list for games            | user only `<PrivateRoute>`  | Shows all videogames finished                                 |
-          
+<Route path="/" /> To the Homepage
+<Route path="/profile" /> To the profile
+<Route path="/signup" /> To the signup page
+<Route path="/login" /> To the login page
+<Route path="/donations" > To the donations page
+<Route path="/challenges"/> To the challenges 
+<Route path="/challenges/:categories" > To the categories for the challenges 
+<Route path="/challenge/:id" > "We are not sure about this one" - ASK JORGE 
+<Route component="{NotFound}" > To the 404 error page
+
+
 
 ## Components
 
 - HomePage.js
 
 - NavBar.js
-
-- LogIn.js
+    ## LINKS THAT WE NEED 
+    1. Logout link that links to HomePage
+    <Link to="/logout" >
+    2. Login link that links to the LoginPage
+    <Link to="/login" >
+    3. Home link that links to the HomePage
+    <Link to="/" >  
+    4. Challenges link that links to the HomePage
+    <Link to="/challenges" >   
+    5. Donation link that links to the HomePage
+    <Link to="/donation" > 
+     
+- LogIn.js 
+    - With a Form 
 
 - SignUp.js
+    - With a Form 
 
-- Profile.js
+
+- Profile.js // *Cloudinary Picture* 
+    - Profile picture 
+    - Show the user challenges in process
+    - Show the user challenges completed
+    - Button to Edit Profile <Link to="/profile/edit" >
+    - Button to Browse challenges  <Link to="/challenges" >
 
 - EditProfile.js
+    - With a Form
+    - Button to Submit Changes
+    - Button to change the profile picture 
 
 - Challenges.js 
 
-- ChallengeDetails.js 
+- ChallengeDetails.js Not sure. Ask Jorge
 
-- ChooseChallenge.js
+- ChooseChallenge.js Not sure. Ask Jorge
 
-- DonationPage.js
+- DonationPage.js // *Stripe Donation*
 
 - FooterBar.js
 
 - NotFound.js 
+    - Shows are awesome 404 page
 
 - ServerError.js
+    - Shows are awesome 500 page
+
+
+
 
 
 
@@ -295,35 +315,60 @@ Distinguish Between Public and Private (protected) Routes
 ```
 
 
-
 ### Donation.model.js (OPTIONAL IF WE WANT TO KEEP TRACK OF THE DONATIONS BY THE USERS)
 
 
 
 <br>
 
+## Seeding the Challenges 
+
+We need to manually seed the challenges 
+
+Seeds folder 
+- challenges.seeds.js
+
 
 ## API Endpoints (backend routes)
 
-| HTTP Method | URL                         | Request Body                 | Success status | Error Status | Description                                                  |
-| ----------- | --------------------------- | ---------------------------- | -------------- | ------------ | ------------------------------------------------------------ |
-| GET         | `/auth/profile    `           | Saved session                | 200            | 404          | Check if user is logged in and return profile page           |
-| POST        | `/auth/signup`                | {name, email, password}      | 201            | 404          | Checks if fields not empty (422) and user not exists (409), then create user with encrypted password, and store user in session |
-| POST        | `/auth/login`                 | {username, password}         | 200            | 401          | Checks if fields not empty (422), if user exists (404), and if password matches (404), then stores user in session    |
-| POST        | `/auth/logout`                | (empty)                      | 204            | 400          | Logs out the user                                            |
-| POST        | `/search/add`                 | {platform, title, type, id}  |                | 400          | Add new backlog element and add to user                                               |
-| GET         | `/backlog/series`             |                              |                | 400          | Show series elements                                           |
-| GET         | `/backlog/films`              |                              |                |              | Show film elements                                           |
-| GET         | `/backlog/games`              |                              |                |              | Show games elements                                          |
-| GET         | `/media/:id`                        |                              | 201            | 400          | Show specific element                                        |
-| PUT         | `/media/:id`                 |                              | 200            | 400          | edit element                                                 |
-| DELETE      | `/media/:id`                 |                              | 201            | 400          | delete element                                               |
-| GET         | `/done/series`                |                              |                | 400          | Show series elements                                         |
-| GET         | `/done/films`                 |                              |                |              | Show film elements                                           |
-| GET         | `/done/games`                 |                              |                |              | Show games elements                                          |
+- config folder (already created)
+    - cloudinary.config.js //For using cloudinary
+
+- index.js (already created)
+ - `/`
+
+- auth.routes.js 
+
+    - POST `/signup` "Creates a new user"  --> if conditions for "Validation" 
+           
+    - POST `/login`   --> if conditions for "Validation" 
+
+    - POST `/logout`  
+    
+    WE NEED A MIDDLEWARE TO CHECK IF THE USER IS LOG IN (SESSIONS)
+
+    - GET `/profile` here we call the middleware --> Protected Route 
+      
+    
+
+- donation.routes.js //For using Stripe
+    - POST `/donations`
+    
+
+- cloudinary.routes.js //For using cloudinary
 
 
+- challenges.routes.js  *One of the this routes needs to be protected*
 
+    - GET `/challenges` "Displays all the categories for the challenges"
+     
+    - GET  `/challenges/:category` "Displays all the challenges for one category"
+    
+    We are not sure. Ask Jorge
+    - `/challenges/:category/:name`  or  `/challenges/:category/`  "Displays a challenge with the 21 days things"
+    - `/challenges/:id` If user is logged in, the info gets fetched from the UserChallenge.model.js // .populate()
+
+      
 <br>
 
 
@@ -336,8 +381,6 @@ Distinguish Between Public and Private (protected) Routes
 
 ### Git
 
-The url to your repository and to your deployed project
-
 [Client repository Link]()
 
 [Server repository Link]()
@@ -345,7 +388,5 @@ The url to your repository and to your deployed project
 [Deployed App Link]()
 
 ### Slides
-
-The url to your presentation slides
 
 [Slides Link]()
