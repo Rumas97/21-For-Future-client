@@ -41,8 +41,8 @@ Distinguish Between Public and Private (protected) Routes
 <Route path="/signup" /> To the signup page
 <Route path="/login" /> To the login page
 <Route path="/donations" > To the donations page
-<Route path="/challenges"/> To the challenges 
-<Route path="/challenges/:categories" > To the categories for the challenges 
+<Route path="/challenges-categories"/> Shows all categories for challenges 
+<Route path="/challenges-categories/:categories" > all challenges for one category
 <Route path="/challenge/:categories/:id" >
 <Route path="/user-challenge/:id"/> To show the user the UserChallenge 
 <Route component="{NotFound}" > To the 404 error page
