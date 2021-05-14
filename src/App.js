@@ -5,7 +5,7 @@ import { Route, Switch} from 'react-router'
 import Categories from './component/Categories'
 import AllChalOneCat from './component/AllChalOneCat'
 import ChallengeDetails from './component/ChallengeDetails'
-import ChallengeDays from './component/ChallengeDays'
+import UserChallengeDetails from './component/UserChallengeDetails'
 
 class App extends Component {
 
@@ -25,9 +25,9 @@ class App extends Component {
           <Route exact path='/challenges/:category/:id' render={(routeProps)=>{
             return <ChallengeDetails {...routeProps}/>
           }}/>
-          <Route exact path='/user-challenge/:challengeId' render={(routeProps)=>{
-            return <ChallengeDays {...routeProps}/>
-          }}/>    
+
+
+           
           </Switch>
       </div>
     )

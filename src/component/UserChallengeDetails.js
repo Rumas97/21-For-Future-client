@@ -1,6 +1,5 @@
 import axios from 'axios'
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import config from '../config'
 import ChallengeDays from './ChallengeDays'
 
@@ -9,14 +8,14 @@ class ChallengeDetails extends Component {
         challengeDetails:null,
         days:1,
         dayToDisplay:null,
-        userStartChallenge:null
+       
     }
 
     componentDidMount(){
         let challengeDetailsId= this.props.match.params.id
         let categoryChallenges = this.props.match.params.category
 
-        axios.get(`${config.API_URL}/api/challenges/${categoryChallenges}/${challengeDetailsId}`)
+        axios.get(`${config.API_URL}/api/user-challenge`)
         .then((response)=>{
             console.log(response.data)
             console.log('component did mount')
@@ -35,21 +34,10 @@ class ChallengeDetails extends Component {
         })
     }
 
-    handleStart=()=>{
-        // let challengeDetailsId= this.props.match.params.id
-        // console.log(challengeDetailsId)
-        axios.post(`${config.API_URL}/api/user-challenge/start/:challengeId`,{},{withCredentials:true})
-        .then(()=>{
-            this.setState({
-                userStartChallenge:null
-            })
-        })
-        .catch(()=>{console.log('user challenge did not start')})
-    }
+
 
     render() {
         const {challengeDetails,dayToDisplay} = this.state
-        let challengeDetailsId= this.props.match.params.id
         if (!challengeDetails || !dayToDisplay){
             return (<h1>...Loading</h1>)
         }
@@ -58,9 +46,6 @@ class ChallengeDetails extends Component {
                 <p>{challengeDetails.challengeName}</p>
                 <p>{dayToDisplay.description}</p>
                 <p>{dayToDisplay.day}</p>
-                
-                <button onClick={this.handleStart}>Start</button>
-                
                 
                 <img src={challengeDetails.challengeImage}/>
                 {
