@@ -37,12 +37,14 @@ Distinguish Between Public and Private (protected) Routes
 
 <Route path="/" /> To the Homepage
 <Route path="/profile" /> To the profile
+<Route path="/profile/edit"/> To edit the profile
 <Route path="/signup" /> To the signup page
 <Route path="/login" /> To the login page
 <Route path="/donations" > To the donations page
 <Route path="/challenges"/> To the challenges 
 <Route path="/challenges/:categories" > To the categories for the challenges 
-<Route path="/challenge/:id" > "We are not sure about this one" - ASK JORGE 
+<Route path="/challenge/:categories/:id" >
+<Route path="/user-challenge/:id"/> To show the user the UserChallenge 
 <Route component="{NotFound}" > To the 404 error page
 
 
@@ -113,25 +115,6 @@ Distinguish Between Public and Private (protected) Routes
 
  
 
-## Services
-
-- Auth Service
-  - auth.login(user)
-  - auth.signup(user)
-  - auth.logout()
-  - auth.me()
-
-- Backlog Service
-  - backlog.filter(type, status) // for different types of media and if they are done or not
-  - backlog.detail(id)
-  - backlog.add(id)
-  - backlog.delete(id)
-  - backlog.update(id)
-  
-- External API
-  - API for games
-  - API for series
-  - API for films
 
 
 <br>
@@ -326,7 +309,10 @@ Distinguish Between Public and Private (protected) Routes
 We need to manually seed the challenges 
 
 Seeds folder 
-- challenges.seeds.js
+- food.seeds.js
+- lifestyle.seeds.js
+- mobility.seeds.js
+- period.seeds.js
 
 
 ## API Endpoints (backend routes)
@@ -337,36 +323,40 @@ Seeds folder
 - index.js (already created)
  - `/`
 
-- auth.routes.js 
+- auth.routes.js **ALL ROUTES WORKING**
 
-    - POST `/signup` "Creates a new user"  --> if conditions for "Validation" 
+    -   POST `/signup` "Creates a new user"  --> if conditions for "Validation" 
            
-    - POST `/login`   --> if conditions for "Validation" 
+    -   POST `/login`   --> if conditions for "Validation" 
 
-    - POST `/logout`  
-    
-    WE NEED A MIDDLEWARE TO CHECK IF THE USER IS LOG IN (SESSIONS)
+    -   POST `/logout`  
 
-    - GET `/profile` here we call the middleware --> Protected Route 
+    WE NEED A MIDDLEWARE TO CHECK IF THE USER IS LOG IN (SESSIONS) 
+
+    -   GET `/profile` here we call the middleware --> Protected Route 
+
+    -   PATCH `/profile/:id/edit`
+
+    -   DELETE `/profile/:id/delete`
       
     
 
 - donation.routes.js //For using Stripe
-    - POST `/donations`
+    -   POST `/donations`
     
 
 - cloudinary.routes.js //For using cloudinary
 
 
-- challenges.routes.js  *One of the this routes needs to be protected*
-
-    - GET `/challenges` "Displays all the categories for the challenges"
+- challenges.routes.js **WORKS**  *One of the this routes needs to be protected*
      
-    - GET  `/challenges/:category` "Displays all the challenges for one category"
-    
-    We are not sure. Ask Jorge
-    - `/challenges/:category/:name`  or  `/challenges/:category/`  "Displays a challenge with the 21 days things"
-    - `/challenges/:id` If user is logged in, the info gets fetched from the UserChallenge.model.js // .populate()
+    -  GET  `/challenges/:category` "Displays all the challenges for one category"
+
+    -  GET `/challenges/:category/:id` "Displays a challenge with the 21 days things"
+
+
+- userChallenge.routes.js **WORKS** 
+    - GET `/user-challenge/:id` If user is logged in, the info gets fetched from the UserChallenge.model.js // .populate()
 
       
 <br>
