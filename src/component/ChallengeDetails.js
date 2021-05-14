@@ -55,19 +55,18 @@ class ChallengeDetails extends Component {
         }
         return (
             <div>
-                <p>{challengeDetails.challengeName}</p>
-                <p>{dayToDisplay.description}</p>
-                <p>{dayToDisplay.day}</p>
-                
-                <button onClick={this.handleStart}>Start</button>
-                
-                
+                <h3>{challengeDetails.challengeName}</h3>
+                <p>Description: {dayToDisplay.description}</p>
+                <p>Day: {dayToDisplay.day}</p>
                 <img src={challengeDetails.challengeImage}/>
+                <br/>
                 {
                     challengeDetails.challengeDay.map((day,index)=>{
                         return <button onClick={()=>this.handleDisplay(day)}>{index+1}</button>
                     })
                 }
+                <br/>
+                <button onClick={this.handleStart}>Start</button>
                 
             </div>
         )
