@@ -116,9 +116,6 @@ class App extends Component {
             return singleUserProfile
         })
 
-<<<<<<< HEAD
-        console.log('error loggin out')
-=======
         this.setState({
           user: newUserProfile
         }, ()=>{
@@ -129,7 +126,6 @@ class App extends Component {
 
       .catch(()=>{
         console.log ("editing profile is failing")
->>>>>>> 9082346bbacd6d1c0554089bcdbe7e8c1f518d87
       })
 
   }
