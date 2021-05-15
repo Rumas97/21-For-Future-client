@@ -47,8 +47,6 @@ Distinguish Between Public and Private (protected) Routes
 <Route path="/user-challenge/:id"/> To show the user the UserChallenge 
 <Route component="{NotFound}" > To the 404 error page
 
-
-
 ## Components
 
 - HomePage.js
@@ -66,10 +64,10 @@ Distinguish Between Public and Private (protected) Routes
     5. Donation link that links to the HomePage
     <Link to="/donation" > 
      
-- LogIn.js 
+- LogIn.js **WORKS** //Log out also works.
     - With a Form 
 
-- SignUp.js
+- SignUp.js **WORKS**
     - With a Form 
 
 
