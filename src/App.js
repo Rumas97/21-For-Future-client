@@ -5,10 +5,10 @@ import { Route, Switch, withRouter} from 'react-router'
 import Categories from './component/Categories'
 import AllChalOneCat from './component/AllChalOneCat'
 import ChallengeDetails from './component/ChallengeDetails'
-import UserChallengeDetails from './component/UserChallengeDetails'
 import Signup from './component/Signup'
 import Login from './component/Login'
-import Navbar from './component/Navbar'
+import Profile from './component/Profile'
+import MenuAppBar from './component/Navbar'
 
 class App extends Component {
 
@@ -105,7 +105,7 @@ class App extends Component {
     
     return (
       <div>
-        <Navbar onLogout={this.handleLogout} user={user} />
+        <MenuAppBar onLogout={this.handleLogout} user={user} />
         <Switch>
           <Route exact path='/' />
           <Route exact path="/signup" render={(routeProps)=>{
@@ -113,6 +113,10 @@ class App extends Component {
           }}  />
          <Route exact path="/login" render={(routeProps)=>{
            return <Login error={error} onLogin={this.handleLogin} {...routeProps}  />
+         }} />
+
+         <Route exact path="/profile" render={(routeProps)=>{
+           return <Profile {...routeProps} />
          }} />
 
           <Route exact path='/challenges' render={(routeProps)=>{
