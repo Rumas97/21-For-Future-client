@@ -14,12 +14,16 @@ class Profile extends Component {
     render() {
         
         const {user}=this.props
+        console.log("WHATS WITH THE USER")
+        console.log(user)
         return (
             <div>
                 <h1> Hey ! This is your profile</h1>
                 <p>{user.username}</p>
+                <p>{user.email}</p>
                 
                 <Link to="/challenges" > <button> Browse Challenges </button> </Link>
+                <Link to={`/profile/${user._id}`} > <button> Edit Profile </button> </Link>
             </div>
         )
     }
