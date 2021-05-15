@@ -1,7 +1,6 @@
 import axios from 'axios'
 import React, { Component } from 'react'
 import config from '../config'
-import ChallengeDays from './ChallengeDays'
 
 class ChallengeDetails extends Component {
     state={

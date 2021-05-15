@@ -10,10 +10,9 @@ class AllChalOneCat extends Component {
     }
 
     componentDidMount(){
-        console.log(this.props)
 
         let categoryChallenges = this.props.match.params.category
-        console.log(categoryChallenges)
+
         axios.get(`${config.API_URL}/api/challenges/${categoryChallenges}`)
         .then((response)=>{
             console.log(response.data)
@@ -24,15 +23,14 @@ class AllChalOneCat extends Component {
 
     render() {
         const{challenges}= this.state
-        console.log(challenges)
         let categoryChallenges = this.props.match.params.category
-        let challengeDetailsId= this.props.match.params.id
         return (
             <div>
                {
                    challenges.map((oneChallenge,index)=>{
                        return <div key={index}>
-                        <Link to={`/challenges/${categoryChallenges}/${challengeDetailsId}`}><h3>{oneChallenge.challengeName}</h3></Link>
+                        <Link to={`/challenges/${categoryChallenges}/${oneChallenge._id}`}><h3>{oneChallenge.challengeName}</h3></Link>
+                        <h3>{oneChallenge._id}</h3>
                        </div>
                    })
                } 

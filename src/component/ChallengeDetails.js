@@ -2,7 +2,6 @@ import axios from 'axios'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import config from '../config'
-import ChallengeDays from './ChallengeDays'
 
 class ChallengeDetails extends Component {
     state={
@@ -18,8 +17,8 @@ class ChallengeDetails extends Component {
 
         axios.get(`${config.API_URL}/api/challenges/${categoryChallenges}/${challengeDetailsId}`)
         .then((response)=>{
-            console.log(response.data)
-            console.log('component did mount')
+           // console.log(response.data)
+           // console.log('component did mount')
             this.setState({
                 challengeDetails: response.data,
                 dayToDisplay: response.data.challengeDay[0]
@@ -29,17 +28,17 @@ class ChallengeDetails extends Component {
     }
 
     handleDisplay=(day)=>{
-        console.log(day)
+        //console.log(day)
         this.setState({
             dayToDisplay:day
         })
     }
 
     handleStart=()=>{
-        // let challengeDetailsId= this.props.match.params.id
-        // console.log(challengeDetailsId)
+
         axios.post(`${config.API_URL}/api/user-challenge/start/:challengeId`,{},{withCredentials:true})
         .then(()=>{
+            
             this.setState({
                 userStartChallenge:null
             })
@@ -49,7 +48,6 @@ class ChallengeDetails extends Component {
 
     render() {
         const {challengeDetails,dayToDisplay} = this.state
-        let challengeDetailsId= this.props.match.params.id
         if (!challengeDetails || !dayToDisplay){
             return (<h1>...Loading</h1>)
         }
@@ -62,7 +60,7 @@ class ChallengeDetails extends Component {
                 <br/>
                 {
                     challengeDetails.challengeDay.map((day,index)=>{
-                        return <button onClick={()=>this.handleDisplay(day)}>{index+1}</button>
+                        return <button key={index} onClick={()=>this.handleDisplay(day)}>{index+1}</button>
                     })
                 }
                 <br/>
