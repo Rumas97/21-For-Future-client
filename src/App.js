@@ -9,6 +9,7 @@ import Signup from './component/Signup'
 import Login from './component/Login'
 import Profile from './component/Profile'
 import MenuAppBar from './component/Navbar'
+import EditProfile from './component/EditProfile'
 
 class App extends Component {
 
@@ -88,18 +89,50 @@ class App extends Component {
         })
       })
 
-      .catch((errorObject)=>{
+      .catch(()=>{
+        console.log("error happening")
+      
+      })
 
-        this.setState ({
-          error: errorObject.response.data
+  }
+
+  handleEditProfile = (user) =>{
+    console.log(user)
+    console.log("user is looost")
+    console.log(this.state)
+    const {_id} = this.state.user
+
+    axios.patch(`${config.API_URL}/api/profile/${_id}`, {
+      username: user.username,
+      password: user.password,
+    }, {withCredentials: true})
+      .then(()=>{
+        let newUserProfile = this.state.user.map((singleUserProfile)=>{
+          if (user.id === singleUserProfile._id){
+            singleUserProfile.username = user.username
+            singleUserProfile.password = user.password
+
+          }
+            return singleUserProfile
         })
+
+        this.setState({
+          user: newUserProfile
+        }, ()=>{
+          this.props.history.push("/")
+        })
+
+      })
+
+      .catch(()=>{
+        console.log ("editing profile is failing")
       })
 
   }
 
   componentDidMount(){        
 
-    axios.get(`${config.API_URL}/api/profile`, {withCredentials: true})
+    axios.get(`${config.API_URL}/api/profile`, {}, {withCredentials: true})
         .then((response)=>{
             this.setState({
               user: response.data,
@@ -130,6 +163,10 @@ class App extends Component {
 
          <Route exact path="/profile" render={(routeProps)=>{
            return <Profile user={user} {...routeProps} />
+         }} />
+
+         <Route exact path="/profile/:id" render={(routeProps)=>{
+           return <EditProfile onEdit={this.handleEditProfile} {...routeProps} />
          }} />
 
           <Route exact path='/challenges' render={(routeProps)=>{
