@@ -10,31 +10,14 @@ import config from '../config'
 //Link to browse challenges - DONE
 class Profile extends Component {
 
-    state = {
-        //profile: null,
-        userProfile: null
-    }
     
-
-    componentDidMount(){        
-
-        axios.get(`${config.API_URL}/api/profile`)
-            .then((response)=>{
-                this.setState({
-                    userProfile: response.data
-                })
-                console.log(response.data)
-            })
-
-            .catch(()=>{console.log('did not mount correctly')})
-    }
-
     render() {
         
-
+        const {user}=this.props
         return (
             <div>
                 <h1> Hey ! This is your profile</h1>
+                <p>{user.username}</p>
                 
                 <Link to="/challenges" > <button> Browse Challenges </button> </Link>
             </div>

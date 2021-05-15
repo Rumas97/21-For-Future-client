@@ -25,11 +25,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function MenuAppBar() {
+function MenuAppBar(props) {
   const classes = useStyles();
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+  const{onLogout}=props
 
   const handleChange = (event) => {
     setAuth(event.target.checked);
@@ -44,6 +45,7 @@ function MenuAppBar() {
   };
 
   return (
+
     <div className={classes.root}>
       <FormGroup>
         <FormControlLabel
@@ -57,7 +59,13 @@ function MenuAppBar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            Photos
+            Home
+            <Link to="/login" > Login  </Link>
+            <Link to="/signup" > Signup  </Link>
+            <Link to="/"> Home  </Link>
+            <Link to="/challenges" > Challenges  </Link>
+            <Link to="/profile" > Profile  </Link>
+            <button onClick={onLogout} >Logout</button>
           </Typography>
           {auth && (
             <div>

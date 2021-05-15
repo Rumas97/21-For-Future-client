@@ -15,7 +15,8 @@ class App extends Component {
   state = {
     user: null,
     error: null,
-    fetchingUser: true
+    fetchingUser: true,
+    userProfile: null
   }
 
   handleSignUp = (event) => {
@@ -63,15 +64,15 @@ class App extends Component {
           user: response.data,
           error: null
         }, ()=>{
-          this.props.history.push("/")
+          this.props.history.push("/profile")
         })
       })
 
-      .catch((errorObject)=>{
+      .catch((err)=>{
 
-        this.setState({
-          error: errorObject.response.data
-        })
+        // this.setState({
+        //   error: errorObject.response.data
+        // })
         console.log("log in failed")
       })
   }
@@ -96,7 +97,19 @@ class App extends Component {
 
   }
 
+  componentDidMount(){        
 
+    axios.get(`${config.API_URL}/api/profile`, {withCredentials: true})
+        .then((response)=>{
+            this.setState({
+              user: response.data,
+              fetchingUser: false
+            })
+            console.log(response.data)
+        })
+
+        .catch(()=>{console.log('did not mount correctly')})
+  }
 
   render() {
 
@@ -116,7 +129,7 @@ class App extends Component {
          }} />
 
          <Route exact path="/profile" render={(routeProps)=>{
-           return <Profile {...routeProps} />
+           return <Profile user={user} {...routeProps} />
          }} />
 
           <Route exact path='/challenges' render={(routeProps)=>{
