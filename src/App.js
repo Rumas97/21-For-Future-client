@@ -80,7 +80,7 @@ class App extends Component {
 
   handleLogout = () => {
 
-    axios.post(`${config.API_URL}/api/logout`, {withCredentials: true})
+    axios.post(`${config.API_URL}/api/logout`, {}, {withCredentials: true} )
       .then(()=>{
         this.setState({
           user: null
@@ -146,11 +146,8 @@ class App extends Component {
 
   render() {
 
-    const {error, user,fetchingUser} = this.state
+    const {error, user} = this.state
 
-    if(fetchingUser){
-      return <p>Loading . . . </p>
-    }
     
     return (
       <div>
