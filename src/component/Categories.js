@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import ButtonBases from './CategoryButtons'
+import ButtonBase from '@material-ui/core/ButtonBase';
+
 
 class Categories extends Component {
 
@@ -10,14 +13,21 @@ class Categories extends Component {
         const {category}= this.state
        
         return (
+
+          
             <div>
-                <h1>Challenges page</h1>
+                    <h1>Our Challenges </h1>
+                    <p>Browse through the four main categories and take action now. Every small</p>
+                  <ButtonBases/>
+        
                 {
                     category.map((oneCategory,index)=>{
                         return <div key={index}>
                             <ul>
                                 <li><Link to={`challenges/${oneCategory}`}>{oneCategory}</Link></li>
                             </ul>
+
+                            
                        </div>
                         
                     })

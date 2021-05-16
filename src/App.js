@@ -10,6 +10,9 @@ import Login from './component/Login'
 import Profile from './component/Profile'
 import MenuAppBar from './component/Navbar'
 import EditProfile from './component/EditProfile'
+import Homepage from './component/Homepage'
+import DonateStripe from './component/DonateStripe'
+import UserChallengeDetails from './component/UserChallengeDetails'
 
 class App extends Component {
 
@@ -153,7 +156,7 @@ class App extends Component {
       <div>
         <MenuAppBar onLogout={this.handleLogout} user={user} />
         <Switch>
-          <Route exact path='/' />
+          <Route exact path='/' component={Homepage} />
           <Route exact path="/signup" render={(routeProps)=>{
             return <Signup onSubmit={this.handleSignUp} {...routeProps} /> 
           }}  />
@@ -176,8 +179,17 @@ class App extends Component {
             return <AllChalOneCat {...routeProps}/>
           }}/>
           <Route exact path='/challenges/:category/:id' render={(routeProps)=>{
-            return <ChallengeDetails {...routeProps}/>
+            return <ChallengeDetails user={user} {...routeProps}/>
           }}/>
+
+          <Route exact path="/donate" render={()=>{
+            return <DonateStripe/>
+          }} />
+
+          <Route exact path="/user-challenge/:id" render={(routeProps)=>{
+            return <UserChallengeDetails user={user} {...routeProps} />
+          }} />
+
 
 
            

@@ -1,0 +1,18 @@
+
+/*-----Overwriting Material Ui Components-*/
+.MuiButton-outlinedSecondary{
+    color: black;
+    border: 1px solid green;
+    outline-style: none;
+}
+
+.MuiButton-outlinedSecondary:hover{
+    color: green;
+    border: 1px solid black;
+    background-color: white
+}
+
+/*-----anchor text deco out-*/
+a{
+    text-decoration: none;
+}

@@ -1,17 +1,19 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import Switch from '@material-ui/core/Switch';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormGroup from '@material-ui/core/FormGroup';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
+import { makeStyles } from '@material-ui/core/styles'
+import AppBar from '@material-ui/core/AppBar'
+import Toolbar from '@material-ui/core/Toolbar'
+import Typography from '@material-ui/core/Typography'
+import IconButton from '@material-ui/core/IconButton'
+import MenuIcon from '@material-ui/icons/Menu'
+import AccountCircle from '@material-ui/icons/AccountCircle'
+import Switch from '@material-ui/core/Switch'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import FormGroup from '@material-ui/core/FormGroup'
+import MenuItem from '@material-ui/core/MenuItem'
+import Menu from '@material-ui/core/Menu'
+import Button from '@material-ui/core/Button';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,18 +28,18 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function MenuAppBar(props) {
-  const classes = useStyles();
-  const [auth, setAuth] = React.useState(true);
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
+  const classes = useStyles()
+  const [auth, setAuth] = React.useState(true)
+  const [anchorEl, setAnchorEl] = React.useState(null)
+  const open = Boolean(anchorEl)
   const{onLogout}=props
 
   const handleChange = (event) => {
-    setAuth(event.target.checked);
+    setAuth(event.target.checked)
   };
 
   const handleMenu = (event) => {
-    setAnchorEl(event.currentTarget);
+    setAnchorEl(event.currentTarget)
   };
 
   const handleClose = () => {
@@ -59,13 +61,13 @@ function MenuAppBar(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            Home
+          <Link to="/"> Home  </Link>
             <Link to="/login" > Login  </Link>
             <Link to="/signup" > Signup  </Link>
-            <Link to="/"> Home  </Link>
+            
             <Link to="/challenges" > Challenges  </Link>
             <Link to="/profile" > Profile  </Link>
-            <button onClick={onLogout} >Logout</button>
+            <Button onClick={onLogout} type="submit" variant="outlined" color="default">Logout</Button>
           </Typography>
           {auth && (
             <div>
@@ -93,8 +95,8 @@ function MenuAppBar(props) {
                 open={open}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}> <Link to="/profile"> Profile </Link> </MenuItem>
+                
               </Menu>
             </div>
           )}
@@ -104,24 +106,3 @@ function MenuAppBar(props) {
   );
 }
 export default MenuAppBar
-
-
-/*
-class Navbar extends Component {
-
-    render() {
-        const {onLogout} = this.props
-
-        return (
-            <div>
-                <Link to="/login" > Login  </Link>
-                <Link to="/signup" > Signup  </Link>
-                <Link to="/"> Home  </Link>
-                <Link to="/challenges" > Challenges  </Link>
-                <button onClick={onLogout} >Logout</button>
-            </div>
-        )
-    }
-}
-
-*/

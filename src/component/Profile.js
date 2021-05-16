@@ -1,13 +1,8 @@
-import axios from 'axios'
+import { Button } from '@material-ui/core'
 import React, { Component } from 'react'
-import {Link, Redirect} from "react-router-dom"
-import config from '../config'
+import {Link} from "react-router-dom"
+import css from "./Profile.css"
 
-
-//display image, the username, the email 
-//edit profile and delete 
-//challenges that its currently doing 
-//Link to browse challenges - DONE
 class Profile extends Component {
 
     
@@ -18,12 +13,20 @@ class Profile extends Component {
         console.log(user)
         return (
             <div>
-                <h1> Hey ! This is your profile</h1>
+                <h1> Hey {user.username} ! Welcome to your profile</h1>
+                <Link to="/challenges" > <Button variant="outlined" color="secondary">Browse Challenges</Button> </Link>
+                
+
                 <p>{user.username}</p>
                 <p>{user.email}</p>
-                
-                <Link to="/challenges" > <button> Browse Challenges </button> </Link>
-                <Link to={`/profile/${user._id}`} > <button> Edit Profile </button> </Link>
+
+                    
+               
+                <Link to={`/profile/${user._id}`}> <Button variant="outlined" color="defaults">Edit Profile</Button> </Link>
+                <br></br>
+                <div> <Button variant="outlined" color="secondary">Delete your account</Button>
+              </div>
+
             </div>
         )
     }

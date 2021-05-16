@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import Button from '@material-ui/core/Button';
+
 
 class Login extends Component {
     render() {
@@ -16,7 +18,7 @@ class Login extends Component {
                             <label htmlFor="InputPassword">Password</label>
                             <input name="password" type="password" className="form-control" id="InputPassword" />
                         </div>
-                        <button type="submit" className="btn btn-primary">Submit</button>
+                        <Button type="submit" variant="outlined" color="defaults">Login</Button>
                         {error && (<p style={{color: "red"}}>  {error.error}</p>) }
                     </form>
             </div>

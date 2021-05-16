@@ -2,28 +2,29 @@ import axios from 'axios'
 import React, { Component } from 'react'
 import config from '../config'
 
-class ChallengeDetails extends Component {
+class UserChallengeDetails extends Component {
     state={
-        challengeDetails:null,
+        userchallengeDetails:null,
         days:1,
         dayToDisplay:null,
        
     }
 
     componentDidMount(){
-        let challengeDetailsId= this.props.match.params.id
-        let categoryChallenges = this.props.match.params.category
+        let userchallengeDetailsId= this.state._id
+        console.log("where is our USER ID ")
+        console.log(userchallengeDetailsId)
 
-        axios.get(`${config.API_URL}/api/user-challenge`)
+        axios.get(`${config.API_URL}/api/user-challenge/${userchallengeDetailsId}`)
         .then((response)=>{
             console.log(response.data)
-            console.log('component did mount')
+            console.log('component did mount for userChallenges')
             this.setState({
-                challengeDetails: response.data,
+                userchallengeDetails: response.data,
                 dayToDisplay: response.data.challengeDay[0]
             })
         })
-        .catch(()=>{console.log('did not mount correctly')})
+        .catch(()=>{console.log('did not mount correctly for userChallenges')})
     }
 
     handleDisplay=(day)=>{
@@ -36,19 +37,20 @@ class ChallengeDetails extends Component {
 
 
     render() {
-        const {challengeDetails,dayToDisplay} = this.state
-        if (!challengeDetails || !dayToDisplay){
+        const {userchallengeDetailsId,dayToDisplay} = this.state
+        if (!userchallengeDetailsId || !dayToDisplay){
             return (<h1>...Loading</h1>)
         }
+
         return (
             <div>
-                <p>{challengeDetails.challengeName}</p>
+                <p>{userchallengeDetailsId.challengeName}</p>
                 <p>{dayToDisplay.description}</p>
                 <p>{dayToDisplay.day}</p>
                 
-                <img src={challengeDetails.challengeImage}/>
+                <img src={userchallengeDetailsId.challengeImage}/>
                 {
-                    challengeDetails.challengeDay.map((day,index)=>{
+                    userchallengeDetailsId.challengeDay.map((day,index)=>{
                         return <button onClick={()=>this.handleDisplay(day)}>{index+1}</button>
                     })
                 }
@@ -58,4 +60,4 @@ class ChallengeDetails extends Component {
     }
 }
 
-export default ChallengeDetails
+export default UserChallengeDetails
