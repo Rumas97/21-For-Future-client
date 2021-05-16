@@ -1,6 +1,6 @@
+import { Button } from '@material-ui/core'
 import axios from 'axios'
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import config from '../config'
 import '../ChallengeDetails.css'
 
@@ -15,12 +15,12 @@ class ChallengeDetails extends Component {
 
     componentDidMount(){
         let challengeDetailsId= this.props.match.params.id
+        console.log("Is the ID undefined???")
+        console.log(challengeDetailsId)
         let categoryChallenges = this.props.match.params.category
 
         axios.get(`${config.API_URL}/api/challenges/${categoryChallenges}/${challengeDetailsId}`)
         .then((response)=>{
-           // console.log(response.data)
-           // console.log('component did mount')
             this.setState({
                 challengeDetails: response.data,
                 dayToDisplay: response.data.challengeDay[0]
@@ -43,37 +43,44 @@ class ChallengeDetails extends Component {
             
             this.setState({
                 userStartChallenge:null
-            },()=>{
-                this.props.history.push(`/user-challenge`)
+            }, ()=>{
+                this.props.history.push("/user-challenge/:id")
+                console.log("newest console log")
+                console.log(this.props)
             })
         })
         .catch(()=>{console.log('user challenge did not start')})
     }
 
     render() {
-        
+        const {user} = this.props
         const {challengeDetails,dayToDisplay} = this.state
         console.log(dayToDisplay)
         if (!challengeDetails || !dayToDisplay){
             return (<h1>...Loading</h1>)
         }
+        // <Button variant="outlined" color="defaults">Edit Profile</Button>
+
         return (
             <div>
-                
+                        {
+                         user ? ( <Button variant="outlined" color="defaults" onClick={this.handleStart}>Start</Button>) : ("Hey, you need to login")
+                        }
+                                <br></br>
+                                <br></br>
+                                {
+                    challengeDetails.challengeDay.map((day,index)=>{
+                        return <button key={index} onClick={()=>this.handleDisplay(day)}>{index+1}</button>
+                    })
+                }
                 <h3>{challengeDetails.challengeName}</h3>
                 <p><button className='start-button' onClick={this.handleStart}>Start Challenge!</button></p>
                 <img src={challengeDetails.challengeImage}/>
                 <br/>
-                {
-                    challengeDetails.challengeDay.map((day,index)=>{
-                        return <button className='days-button' key={index} onClick={()=>this.handleDisplay(day)}>{index+1}</button>
-                    })
-                }
-
-                <p>Description: {dayToDisplay.description}</p>
-                <p>Day: {dayToDisplay.day}</p>
-                <br/>
                 
+                <br/>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/TQtRv-wdaJU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
                 
             </div>
         )

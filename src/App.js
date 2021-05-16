@@ -12,6 +12,8 @@ import Profile from './component/Profile'
 import MenuAppBar from './component/Navbar'
 import EditProfile from './component/EditProfile'
 import Homepage from './component/Homepage'
+import DonateStripe from './component/DonateStripe'
+import UserChallengeDetails from './component/UserChallengeDetails'
 
 class App extends Component {
 
@@ -179,8 +181,17 @@ class App extends Component {
             return <AllChalOneCat {...routeProps}/>
           }}/>
           <Route exact path='/challenges/:category/:id' render={(routeProps)=>{
-            return <ChallengeDetails {...routeProps}/>
+            return <ChallengeDetails user={user} {...routeProps}/>
           }}/>
+
+          <Route exact path="/donate" render={()=>{
+            return <DonateStripe/>
+          }} />
+
+          <Route exact path="/user-challenge/:id" render={(routeProps)=>{
+            return <UserChallengeDetails user={user} {...routeProps} />
+          }} />
+
 
 
            

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Button from '@material-ui/core/Button';
 
 class Signup extends Component {
     render() {
@@ -13,14 +14,15 @@ class Signup extends Component {
                     </div>
                     <div className="form-group">
                         <label htmlFor="InputEmail">Email address</label>
-                        <input type="email" className="form-control" id="InputEmail" name="email" />
-                        <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+                        <input type="email"  name="email" />
+                        <small >We'll never share your email with anyone else.</small>
                     </div>
                     <div className="form-group">
                         <label htmlFor="InputPassword">Password</label>
                         <input name="password" type="password" className="form-control" id="InputPassword" />
                     </div>
-                    <button type="submit" className="btn btn-primary">Submit</button>
+                    <Button type="submit" variant="outlined" color="default">Create your account</Button>
+                    
                 </form>
 
             </div>

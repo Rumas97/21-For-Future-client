@@ -4,23 +4,27 @@ import config from '../config'
 
 class UserChallengeDetails extends Component {
     state={
-        userChallengeId:null,       
+        userchallengeDetails:null,
+        days:1,
+        dayToDisplay:null,
+       
     }
 
     componentDidMount(){
-        console.log(this.state)
-        let userChallengeId= this.state._id
-        
+        let userchallengeDetailsId= this.state._id
+        console.log("where is our USER ID ")
+        console.log(userchallengeDetailsId)
 
-        axios.get(`${config.API_URL}/api/user-challenges/${userChallengeId}`)
+        axios.get(`${config.API_URL}/api/user-challenge/${userchallengeDetailsId}`)
         .then((response)=>{
             console.log(response.data)
-            console.log('component did mount')
+            console.log('component did mount for userChallenges')
             this.setState({
-                userChallengeId: response.data
+                userchallengeDetails: response.data,
+                dayToDisplay: response.data.challengeDay[0]
             })
         })
-        .catch(()=>{console.log('did not mount correctly')})
+        .catch(()=>{console.log('did not mount correctly for userChallenges')})
     }
 
     handleDisplay=(day)=>{
@@ -33,19 +37,20 @@ class UserChallengeDetails extends Component {
 
 
     render() {
-        const {challengeDetails,dayToDisplay} = this.state
-        if (!challengeDetails || !dayToDisplay){
+        const {userchallengeDetailsId,dayToDisplay} = this.state
+        if (!userchallengeDetailsId || !dayToDisplay){
             return (<h1>...Loading</h1>)
         }
+
         return (
             <div>
-                <p>{challengeDetails.challengeName}</p>
+                <p>{userchallengeDetailsId.challengeName}</p>
                 <p>{dayToDisplay.description}</p>
                 <p>{dayToDisplay.day}</p>
                 
-                <img src={challengeDetails.challengeImage}/>
+                <img src={userchallengeDetailsId.challengeImage}/>
                 {
-                    challengeDetails.challengeDay.map((day,index)=>{
+                    userchallengeDetailsId.challengeDay.map((day,index)=>{
                         return <button onClick={()=>this.handleDisplay(day)}>{index+1}</button>
                     })
                 }
