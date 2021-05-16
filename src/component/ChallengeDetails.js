@@ -62,7 +62,11 @@ class ChallengeDetails extends Component {
         // <Button variant="outlined" color="defaults">Edit Profile</Button>
 
         return (
-            <div>
+            <div>                
+                <h3>{challengeDetails.challengeName}</h3>
+                <img src={challengeDetails.challengeImage}/>
+                <br/>
+                <br/>
                         {
                          user ? ( <Button variant="outlined" color="defaults" onClick={this.handleStart}>Start</Button>) : ("Hey, you need to login")
                         }
@@ -70,12 +74,10 @@ class ChallengeDetails extends Component {
                                 <br></br>
                                 {
                     challengeDetails.challengeDay.map((day,index)=>{
-                        return <button key={index} onClick={()=>this.handleDisplay(day)}>{index+1}</button>
+                        return <button className='days-button' key={index} onClick={()=>this.handleDisplay(day)}>{index+1}</button>
                     })
                 }
-                <h3>{challengeDetails.challengeName}</h3>
-                <p><button className='start-button' onClick={this.handleStart}>Start Challenge!</button></p>
-                <img src={challengeDetails.challengeImage}/>
+
                 <br/>
                 
                 <br/>

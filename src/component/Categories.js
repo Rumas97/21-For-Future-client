@@ -17,10 +17,10 @@ class Categories extends Component {
           
             <div>
                     <h1>Our Challenges </h1>
-                    <p>Browse through the four main categories and take action now. Every small</p>
-                  <ButtonBases/>
+                    <p>Browse through the four main categories and take action now. Every small step counts!</p>
+                  <ButtonBases />
         
-                {
+                {/* {
                     category.map((oneCategory,index)=>{
                         return <div key={index}>
                             <ul>
@@ -31,7 +31,7 @@ class Categories extends Component {
                        </div>
                         
                     })
-                }
+                } */}
                 
             </div>
         )
