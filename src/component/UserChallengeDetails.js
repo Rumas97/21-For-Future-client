@@ -2,25 +2,22 @@ import axios from 'axios'
 import React, { Component } from 'react'
 import config from '../config'
 
-class ChallengeDetails extends Component {
+class UserChallengeDetails extends Component {
     state={
-        challengeDetails:null,
-        days:1,
-        dayToDisplay:null,
-       
+        userChallengeId:null,       
     }
 
     componentDidMount(){
-        let challengeDetailsId= this.props.match.params.id
-        let categoryChallenges = this.props.match.params.category
+        console.log(this.state)
+        let userChallengeId= this.state._id
+        
 
-        axios.get(`${config.API_URL}/api/user-challenge`)
+        axios.get(`${config.API_URL}/api/user-challenges/${userChallengeId}`)
         .then((response)=>{
             console.log(response.data)
             console.log('component did mount')
             this.setState({
-                challengeDetails: response.data,
-                dayToDisplay: response.data.challengeDay[0]
+                userChallengeId: response.data
             })
         })
         .catch(()=>{console.log('did not mount correctly')})
@@ -58,4 +55,4 @@ class ChallengeDetails extends Component {
     }
 }
 
-export default ChallengeDetails
+export default UserChallengeDetails

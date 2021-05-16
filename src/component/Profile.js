@@ -10,6 +10,25 @@ import config from '../config'
 //Link to browse challenges - DONE
 class Profile extends Component {
 
+    state={
+        userChallenges: null
+    }
+
+    componentDidMount(){
+        console.log(this.props)
+        
+        let userChallengeId = this.props.match.params.id
+        console.log(userChallengeId)
+        axios.get(`${config.API_URL}/api/user-challenges/${userChallengeId}`)
+        .then((response)=>{
+            this.setState({
+                userChallenges: response.data
+            })
+        })
+        .catch((err)=>{
+            console.log('we dont see the user challenges')
+        })
+    }
     
     render() {
         

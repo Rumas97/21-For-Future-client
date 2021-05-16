@@ -2,6 +2,8 @@ import axios from 'axios'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import config from '../config'
+import '../ChallengeDetails.css'
+
 
 class ChallengeDetails extends Component {
     state={
@@ -41,30 +43,37 @@ class ChallengeDetails extends Component {
             
             this.setState({
                 userStartChallenge:null
+            },()=>{
+                this.props.history.push(`/user-challenge`)
             })
         })
         .catch(()=>{console.log('user challenge did not start')})
     }
 
     render() {
+        
         const {challengeDetails,dayToDisplay} = this.state
+        console.log(dayToDisplay)
         if (!challengeDetails || !dayToDisplay){
             return (<h1>...Loading</h1>)
         }
         return (
             <div>
+                
                 <h3>{challengeDetails.challengeName}</h3>
-                <p>Description: {dayToDisplay.description}</p>
-                <p>Day: {dayToDisplay.day}</p>
+                <p><button className='start-button' onClick={this.handleStart}>Start Challenge!</button></p>
                 <img src={challengeDetails.challengeImage}/>
                 <br/>
                 {
                     challengeDetails.challengeDay.map((day,index)=>{
-                        return <button key={index} onClick={()=>this.handleDisplay(day)}>{index+1}</button>
+                        return <button className='days-button' key={index} onClick={()=>this.handleDisplay(day)}>{index+1}</button>
                     })
                 }
+
+                <p>Description: {dayToDisplay.description}</p>
+                <p>Day: {dayToDisplay.day}</p>
                 <br/>
-                <button onClick={this.handleStart}>Start</button>
+                
                 
             </div>
         )

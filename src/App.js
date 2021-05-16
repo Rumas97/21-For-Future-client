@@ -1,5 +1,6 @@
 import axios from 'axios'
 import config from './config'
+import './App.css'
 import React, { Component } from 'react'
 import { Route, Switch, withRouter} from 'react-router'
 import Categories from './component/Categories'
@@ -10,6 +11,7 @@ import Login from './component/Login'
 import Profile from './component/Profile'
 import MenuAppBar from './component/Navbar'
 import EditProfile from './component/EditProfile'
+import Homepage from './component/Homepage'
 
 class App extends Component {
 
@@ -17,7 +19,8 @@ class App extends Component {
     user: null,
     error: null,
     fetchingUser: true,
-    userProfile: null
+    userProfile: null,
+    
   }
 
   handleSignUp = (event) => {
@@ -150,10 +153,10 @@ class App extends Component {
 
     
     return (
-      <div>
+      <div className='App'>
         <MenuAppBar onLogout={this.handleLogout} user={user} />
         <Switch>
-          <Route exact path='/' />
+          <Route exact path='/' component={Homepage}/>
           <Route exact path="/signup" render={(routeProps)=>{
             return <Signup onSubmit={this.handleSignUp} {...routeProps} /> 
           }}  />
