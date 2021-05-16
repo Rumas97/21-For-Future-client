@@ -2,7 +2,7 @@ import { Button } from '@material-ui/core'
 import axios from 'axios'
 import React, { Component } from 'react'
 import config from '../config'
-import '../ChallengeDetails.css'
+import './ChallengeDetails.css'
 
 
 class ChallengeDetails extends Component {
@@ -59,7 +59,6 @@ class ChallengeDetails extends Component {
         if (!challengeDetails || !dayToDisplay){
             return (<h1>...Loading</h1>)
         }
-        // <Button variant="outlined" color="defaults">Edit Profile</Button>
 
         return (
             <div>
@@ -70,13 +69,15 @@ class ChallengeDetails extends Component {
                                 <br></br>
                                 {
                     challengeDetails.challengeDay.map((day,index)=>{
-                        return <button key={index} onClick={()=>this.handleDisplay(day)}>{index+1}</button>
+                        return <button className="days-button" key={index} onClick={()=>this.handleDisplay(day)}>{index+1}</button>
                     })
                 }
-                <h3>{challengeDetails.challengeName}</h3>
-                <p><button className='start-button' onClick={this.handleStart}>Start Challenge!</button></p>
+                <h2>{challengeDetails.challengeName}</h2>
+                <p>In this challenge you'll try to stay 21 days without </p>
                 <img src={challengeDetails.challengeImage}/>
                 <br/>
+                <p>{dayToDisplay.description}</p>
+
                 
                 <br/>
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/TQtRv-wdaJU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

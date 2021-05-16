@@ -1,0 +1,12 @@
+.MuiAppBar-colorPrimary{
+    color: black !important;
+    background-color: white !important;
+}
+
+a{
+    color: black
+}
+
+a:hover{
+    color:olive
+}

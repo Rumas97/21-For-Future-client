@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import config from '../config'
 import {Link} from 'react-router-dom'
+import {Button} from "@material-ui/core"
 
 class AllChalOneCat extends Component {
 
     state={
         challenges:[]
     }
-
     componentDidMount(){
 
         let categoryChallenges = this.props.match.params.category
@@ -29,8 +29,9 @@ class AllChalOneCat extends Component {
                {
                    challenges.map((oneChallenge,index)=>{
                        return <div key={index}>
-                        <Link to={`/challenges/${categoryChallenges}/${oneChallenge._id}`}><h3>{oneChallenge.challengeName}</h3></Link>
-                        <h3>{oneChallenge._id}</h3>
+                         <br></br>
+                        <Link to={`/challenges/${categoryChallenges}/${oneChallenge._id}`}> <Button> {oneChallenge.challengeName}     </Button></Link>
+                        
                        </div>
                    })
                } 

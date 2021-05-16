@@ -7,7 +7,7 @@ import {Link} from "react-router-dom"
 const images = [
   {
     url: "https://massel.com/wp-content/uploads/2017/05/Sustainable-foods.jpg",
-    title: 'Food',
+    title: "Food",
     width: '25%',
     
   },
@@ -102,8 +102,6 @@ const useStyles = makeStyles((theme) => ({
     left: 'calc(50% - 9px)',
     transition: theme.transitions.create('opacity'),
   },
-
-   
 }));
 
 export default function ButtonBases() {
@@ -137,14 +135,14 @@ export default function ButtonBases() {
               component="span"
               variant="subtitle1"
               color="inherit"
-              className={classes.imageTitle}
+              
             >
-              {image.title}
+              <Link className={classes.imageTitle} to={`challenges/${image.title}`}> {image.title}</Link>
+              
               <span className={classes.imageMarked} />
             </Typography>
           </span>
         </ButtonBase>
-        
       ))}
     </div>
   );

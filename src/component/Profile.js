@@ -2,6 +2,8 @@ import { Button } from '@material-ui/core'
 import React, { Component } from 'react'
 import {Link} from "react-router-dom"
 import css from "./Profile.css"
+import axios from "axios"
+import config from "../config"
 
 class Profile extends Component {
 
