@@ -31,7 +31,7 @@ class AllChalOneCat extends Component {
                {
                    challenges.map((oneChallenge,index)=>{
                        return <div key={index}>
-                        <Paper elevation={3}><Link to={`/challenges/${categoryChallenges}/${oneChallenge._id}`}><h3>{oneChallenge.challengeName}</h3></Link></Paper> 
+                        <Link to={`/challenges/${categoryChallenges}/${oneChallenge._id}`}><h3>{oneChallenge.challengeName}</h3></Link>
                     
                        </div>
                    })

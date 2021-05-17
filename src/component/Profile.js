@@ -30,6 +30,10 @@ class Profile extends Component {
     render() {
         
         const {user}=this.props
+
+        if(!user){
+            return <h2>Loading...</h2>
+        }
         console.log("WHATS WITH THE USER")
         console.log(user)
         return (
