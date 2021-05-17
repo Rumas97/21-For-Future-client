@@ -12,12 +12,8 @@ class Profile extends Component {
     }
 
     componentDidMount(){
-        //pass credentials asd well and 
-        console.log(this.props)
-        
-        let userChallengeId = this.props.match.params.id
-        console.log(userChallengeId)
-        axios.get(`${config.API_URL}/api/user-challenges/${userChallengeId}`)
+            
+        axios.get(`${config.API_URL}/api/user-challenge/all-challenges`,{withCredentials:true})
         .then((response)=>{
             this.setState({
                 userChallenges: response.data
@@ -30,9 +26,10 @@ class Profile extends Component {
     
     render() {
         
+        const{userChallenges} = this.state
         const {user}=this.props
 
-        if(!user){
+        if(!user || !userChallenges){
             return <h2>Loading ...</h2>
         }
         
@@ -44,6 +41,14 @@ class Profile extends Component {
 
                 <p>Username: {user.username}</p>
                 <p>Email: {user.email}</p>
+
+                <h3>
+                    {
+                        userChallenges.map((oneChallenge)=>{
+                            return <div>{oneChallenge.challengeId.challengeName}</div>
+                        })
+                    }
+                </h3>
 
                     
                
