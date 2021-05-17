@@ -1,11 +1,33 @@
 .wwfImg{
     height: 200px;
-    width: 360px
-
+    width: 360px;
+   
 }
 
 .greenpeaceImg{
     height: 160px;
-    width: 560px
+    width: 360px
 
+}
+
+
+
+#partOne{
+    background-color: #b7ff5a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 60px;
+    padding: 5px 20px 20px 20px;
+
+}
+
+#partTwo{
+    padding: 5px 20px 20px 20px;
+
+}
+
+#partThree{
+    background-color: #b7ff5a;
+    padding: 5px 20px 20px 20px;
 }

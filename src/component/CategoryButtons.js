@@ -25,7 +25,7 @@ const images = [
   },
 
   {
-    url: 'https://images.unsplash.com/photo-1556814086-bd749c2ceabd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=678&q=80',
+    url: 'https://images.unsplash.com/photo-1607185073253-44296286cd82?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
     title: 'Sustainable Period',
     width: '25%',
   },
