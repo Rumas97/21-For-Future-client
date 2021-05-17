@@ -22,7 +22,6 @@ class App extends Component {
     error: null,
     fetchingUser: true,
     userProfile: null,
-    
   }
 
   handleSignUp = (event) => {
@@ -74,12 +73,12 @@ class App extends Component {
         })
       })
 
-      .catch((err)=>{
+      .catch((errorObject)=>{
 
-        // this.setState({
-        //   error: errorObject.response.data
-        // })
-        console.log("log in failed")
+         this.setState({
+          error: errorObject.response.data
+        })
+        
       })
   }
 
@@ -135,13 +134,35 @@ class App extends Component {
 
   }
 
+  handleDeleteProfile = (userId) =>{
+
+    const {_id} = this.state.user
+
+    axios.delete(`${config.API_URL}/api/profile/${_id}/delete`, {withCredentials: true})
+      .then(()=>{
+      
+        this.setState({
+          user: null
+        }, ()=>{
+          this.props.history.push("/")
+        } ) 
+      })
+
+      .catch(()=>{
+        console.log("user not deleted")
+
+      })
+
+  }
+ 
   componentDidMount(){        
 
     axios.get(`${config.API_URL}/api/profile`, {withCredentials: true})
         .then((response)=>{
             this.setState({
               user: response.data,
-              fetchingUser: false
+              fetchingUser: false,
+              
             })
            
         })
@@ -169,7 +190,7 @@ class App extends Component {
          }} />
 
          <Route exact path="/profile" render={(routeProps)=>{
-           return <Profile user={user} {...routeProps} />
+           return <Profile user={user} onDelete={this.handleDeleteProfile} {...routeProps} />
          }} />
 
          <Route exact path="/profile/:id" render={(routeProps)=>{
