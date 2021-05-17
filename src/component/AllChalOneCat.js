@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import config from '../config'
+import { Paper } from '@material-ui/core'
 import {Link} from 'react-router-dom'
 import {Button} from "@material-ui/core"
 
@@ -26,12 +27,12 @@ class AllChalOneCat extends Component {
         let categoryChallenges = this.props.match.params.category
         return (
             <div>
+                
                {
                    challenges.map((oneChallenge,index)=>{
                        return <div key={index}>
-                         <br></br>
-                        <Link to={`/challenges/${categoryChallenges}/${oneChallenge._id}`}> <Button> {oneChallenge.challengeName}     </Button></Link>
-                        
+                        <Paper elevation={3}><Link to={`/challenges/${categoryChallenges}/${oneChallenge._id}`}><h3>{oneChallenge.challengeName}</h3></Link></Paper> 
+                    
                        </div>
                    })
                } 

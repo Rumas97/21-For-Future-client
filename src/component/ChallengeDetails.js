@@ -38,13 +38,17 @@ class ChallengeDetails extends Component {
 
     handleStart=()=>{
 
-        axios.post(`${config.API_URL}/api/user-challenge/start/:challengeId`,{},{withCredentials:true})
-        .then(()=>{
+        const {_id} = this.state.challengeDetails
+        //const {id} = this.props.match.params -- We can try later if this works as well
+
+        axios.post(`${config.API_URL}/api/user-challenge/start/${_id}`,{},{withCredentials:true})
+        .then((response)=>{
+            const {_id} = response.data
             
             this.setState({
                 userStartChallenge:null
             }, ()=>{
-                this.props.history.push("/user-challenge/:id")
+                this.props.history.push(`/user-challenge/${_id}`)
                 console.log("newest console log")
                 console.log(this.props)
             })
@@ -61,28 +65,27 @@ class ChallengeDetails extends Component {
         }
 
         return (
-            <div>
-                        {
-                         user ? ( <Button variant="outlined" color="defaults" onClick={this.handleStart}>Start</Button>) : ("Hey, you need to login")
-                        }
-                                <br></br>
-                                <br></br>
-                                {
+            <div>      
+                      
+                {
+                    user ? ( <Button variant="outlined" color="defaults" onClick={this.handleStart}>Start</Button>) : ("Hey, you need to login")
+                }
+                    <br></br>
+                    <br></br>
+                    <h2>{challengeDetails.challengeName}</h2>
+                    <p>In this challenge you'll try to stay 21 days without </p>
+                        
+                {
+                                    
                     challengeDetails.challengeDay.map((day,index)=>{
                         return <button className="days-button" key={index} onClick={()=>this.handleDisplay(day)}>{index+1}</button>
                     })
                 }
-                <h2>{challengeDetails.challengeName}</h2>
-                <p>In this challenge you'll try to stay 21 days without </p>
-                <img src={challengeDetails.challengeImage}/>
-                <br/>
-                <p>{dayToDisplay.description}</p>
-
                 
+                <p>{dayToDisplay.description}</p>
                 <br/>
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/TQtRv-wdaJU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-                
             </div>
         )
     }

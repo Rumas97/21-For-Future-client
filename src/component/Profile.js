@@ -12,6 +12,7 @@ class Profile extends Component {
     }
 
     componentDidMount(){
+        //pass credentials asd well and 
         console.log(this.props)
         
         let userChallengeId = this.props.match.params.id
@@ -30,21 +31,25 @@ class Profile extends Component {
     render() {
         
         const {user}=this.props
-        console.log("WHATS WITH THE USER")
-        console.log(user)
+
+        if(!user){
+            return <h2>Loading ...</h2>
+        }
+        
         return (
             <div>
-                <h1> Hey {user.username} ! Welcome to your profile</h1>
+                <h1> Hey {user.username} ! Welcome to your profile 🌳</h1>
                 <Link to="/challenges" > <Button variant="outlined" color="secondary">Browse Challenges</Button> </Link>
                 
 
-                <p>{user.username}</p>
-                <p>{user.email}</p>
+                <p>Username: {user.username}</p>
+                <p>Email: {user.email}</p>
 
                     
                
                 <Link to={`/profile/${user._id}`}> <Button variant="outlined" color="defaults">Edit Profile</Button> </Link>
-                <br></br>
+                <br/>
+                <br/>
                 <div> <Button variant="outlined" color="secondary">Delete your account</Button>
               </div>
 

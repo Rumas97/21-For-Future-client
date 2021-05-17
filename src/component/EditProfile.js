@@ -1,6 +1,10 @@
 import axios from 'axios'
 import React, { Component } from 'react'
 import config from "../config"
+import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
+
+
 
 class EditProfile extends Component {
 
@@ -50,9 +54,23 @@ class EditProfile extends Component {
 
         return (
             <div>
-                <input onChange={this.handleUsernameChange} type="text" placeholder="username" value={userProfile.username} />
-                <input onChange={this.handlePasswordChange} type="text" placeholder="password" value={userProfile.password} />
-                <button onClick={()=>{onEdit(userProfile)}} >Submit Changes</button>
+                
+            <TextField id="outlined-required"
+            type="text"
+            name="username"
+            label="Username"
+            placeholder='Enter username here'
+            variant="outlined" onChange={this.handleUsernameChange} value={userProfile.username} />
+            
+            <TextField
+            id="outlined-password-input"
+            type="password"
+            name="password"
+            label="Password"
+            type="password"
+            autoComplete="current-password"
+            variant="outlined" onChange={this.handlePasswordChange}  value={userProfile.password} />
+                <Button type="submit" variant="outlined" color="default" onClick={()=>{onEdit(userProfile)}} >Submit Changes</Button>
             </div>
         )
     }

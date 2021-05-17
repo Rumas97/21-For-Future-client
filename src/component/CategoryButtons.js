@@ -2,9 +2,11 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
+import '../CategoryButtons.css'
 import {Link} from "react-router-dom"
 
 const images = [
+  
   {
     url: "https://massel.com/wp-content/uploads/2017/05/Sustainable-foods.jpg",
     title: "Food",
@@ -24,7 +26,7 @@ const images = [
 
   {
     url: 'https://images.unsplash.com/photo-1556814086-bd749c2ceabd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=678&q=80',
-    title: 'Lifestyle',
+    title: 'Sustainable Period',
     width: '25%',
   },
 
@@ -107,11 +109,12 @@ const useStyles = makeStyles((theme) => ({
 export default function ButtonBases() {
   const classes = useStyles();
 
+
   return (
     <div className={classes.root}>
+ 
       {images.map((image) => (
         <ButtonBase
-          
           focusRipple
           key={image.title}
           className={classes.image}
@@ -120,6 +123,7 @@ export default function ButtonBases() {
             width: image.width,
           }}
         >
+          
           <span
             className={classes.imageSrc}
             style={{
@@ -137,7 +141,7 @@ export default function ButtonBases() {
               color="inherit"
               
             >
-              <Link className={classes.imageTitle} to={`challenges/${image.title}`}> {image.title}</Link>
+              <Link className={classes.imageTitle}  to={`challenges/${image.title}`}> {image.title}</Link>
               
               <span className={classes.imageMarked} />
             </Typography>

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import wwf from "../otherImages/wwf.png"
 import vivaConAgua from "../otherImages/vivaconagua.png"
 import greenpeace from "../otherImages/greenpeace.png"
-import cssDonateStripe from "./DonateStripe.css"
+import "./DonateStripe.css"
 
 
 class DonateStripe extends Component {
