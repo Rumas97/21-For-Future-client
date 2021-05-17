@@ -69,14 +69,23 @@ function MenuAppBar(props) {
             <Link to="/challenges" > Challenges  </Link>
            
             {
-              user ? (<Button onClick={onLogout} type="submit" variant="outlined" color="default">Logout</Button>): (
+              user ?
+            
+               (
+                <>
+                  <Button onClick={onLogout} type="submit" variant="outlined" color="default">Logout</Button>  
+                  <Link to="/profile" > Profile  </Link>  
+                </>
+               ) 
+               : 
+               (
                   <>
                     <Link to="/login" > Login  </Link>
                     <Link to="/signup" > Signup  </Link>
                   </>
                 )
             }
-            <Link to="/profile" > Profile  </Link>
+           
           </Typography>
           {auth && (
             <div>

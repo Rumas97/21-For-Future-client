@@ -137,13 +137,13 @@ class App extends Component {
 
   componentDidMount(){        
 
-    axios.get(`${config.API_URL}/api/profile`, {}, {withCredentials: true})
+    axios.get(`${config.API_URL}/api/profile`, {withCredentials: true})
         .then((response)=>{
             this.setState({
               user: response.data,
               fetchingUser: false
             })
-            console.log(response.data)
+           
         })
 
         .catch(()=>{console.log('did not mount correctly')})
@@ -152,6 +152,8 @@ class App extends Component {
   render() {
 
     const {error, user} = this.state
+
+
 
     
     return (

@@ -12,6 +12,7 @@ class Profile extends Component {
     }
 
     componentDidMount(){
+        //pass credentials asd well and 
         console.log(this.props)
         
         let userChallengeId = this.props.match.params.id
@@ -32,10 +33,9 @@ class Profile extends Component {
         const {user}=this.props
 
         if(!user){
-            return <h2>Loading...</h2>
+            return <h2>Loading ...</h2>
         }
-        console.log("WHATS WITH THE USER")
-        console.log(user)
+        
         return (
             <div>
                 <h1> Hey {user.username} ! Welcome to your profile 🌳</h1>
