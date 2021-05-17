@@ -3,13 +3,13 @@ import axios from 'axios'
 import config from '../config'
 import { Paper } from '@material-ui/core'
 import {Link} from 'react-router-dom'
+import {Button} from "@material-ui/core"
 
 class AllChalOneCat extends Component {
 
     state={
         challenges:[]
     }
-
     componentDidMount(){
 
         let categoryChallenges = this.props.match.params.category

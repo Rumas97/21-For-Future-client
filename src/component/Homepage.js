@@ -1,4 +1,4 @@
-import '../Homepage.css'
+import homepagecss from './Homepage.css'
 import React, { Component } from 'react'
 import EcoEducation from '../ecolifeImages/EcoEducation.svg'
 import { Link } from 'react-router-dom'
@@ -17,7 +17,7 @@ class Homepage extends Component {
 
                 
                 <div>
-                    <Link to="/signup"> <Button variant="outlined" color="default">Create an account</Button> </Link> 
+                    <Link to="/signup"> <Button variant="outlined" color="defaults">Create an account</Button> </Link> 
                 </div>
 
 
@@ -26,7 +26,7 @@ class Homepage extends Component {
                 </div>
 
                 <div> 
-                 <Link to="/donate"> <Button variant="outlined" color="default">Donate</Button> </Link> 
+                 <Link to="/donate"> <Button className="" variant="outlined" color="default">Donate</Button> </Link> 
                 </div>
 
 

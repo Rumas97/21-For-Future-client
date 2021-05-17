@@ -2,7 +2,7 @@ import { Button } from '@material-ui/core'
 import axios from 'axios'
 import React, { Component } from 'react'
 import config from '../config'
-import '../ChallengeDetails.css'
+import './ChallengeDetails.css'
 
 
 class ChallengeDetails extends Component {
@@ -59,7 +59,6 @@ class ChallengeDetails extends Component {
         if (!challengeDetails || !dayToDisplay){
             return (<h1>...Loading</h1>)
         }
-        // <Button variant="outlined" color="defaults">Edit Profile</Button>
 
         return (
             <div>                
@@ -79,6 +78,8 @@ class ChallengeDetails extends Component {
                 }
 
                 <br/>
+                <p>{dayToDisplay.description}</p>
+
                 
                 <br/>
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/TQtRv-wdaJU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

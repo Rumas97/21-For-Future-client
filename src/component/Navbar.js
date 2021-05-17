@@ -13,6 +13,7 @@ import FormGroup from '@material-ui/core/FormGroup'
 import MenuItem from '@material-ui/core/MenuItem'
 import Menu from '@material-ui/core/Menu'
 import Button from '@material-ui/core/Button';
+import css from "./Navbar.css"
 
 
 const useStyles = makeStyles((theme) => ({
@@ -34,6 +35,7 @@ function MenuAppBar(props) {
   const [anchorEl, setAnchorEl] = React.useState(null)
   const open = Boolean(anchorEl)
   const{onLogout}=props
+  const {user} = props
 
   const handleChange = (event) => {
     setAuth(event.target.checked)
@@ -50,6 +52,7 @@ function MenuAppBar(props) {
   return (
 
     <div className={classes.root}>
+      
       <FormGroup>
         <FormControlLabel
           control={<Switch checked={auth} onChange={handleChange} aria-label="login switch" />}
@@ -62,13 +65,18 @@ function MenuAppBar(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-          <Link to="/"> Home  </Link>
-            <Link to="/login" > Login  </Link>
-            <Link to="/signup" > Signup  </Link>
-            
+            <Link to="/"> Home  </Link>
             <Link to="/challenges" > Challenges  </Link>
+           
+            {
+              user ? (<Button onClick={onLogout} type="submit" variant="outlined" color="default">Logout</Button>): (
+                  <>
+                    <Link to="/login" > Login  </Link>
+                    <Link to="/signup" > Signup  </Link>
+                  </>
+                )
+            }
             <Link to="/profile" > Profile  </Link>
-            <Button onClick={onLogout} type="submit" variant="outlined" color="default">Logout</Button>
           </Typography>
           {auth && (
             <div>

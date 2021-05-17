@@ -103,8 +103,6 @@ const useStyles = makeStyles((theme) => ({
     left: 'calc(50% - 9px)',
     transition: theme.transitions.create('opacity'),
   },
-
-   
 }));
 
 export default function ButtonBases() {
@@ -140,14 +138,14 @@ export default function ButtonBases() {
               component="span"
               variant="subtitle1"
               color="inherit"
-              className={classes.imageTitle}
+              
             >
-              <Link className='cat-button' to={`challenges/${image.title}`}>{image.title}</Link>
+              <Link className={classes.imageTitle} to={`challenges/${image.title}`}> {image.title}</Link>
+              
               <span className={classes.imageMarked} />
             </Typography>
           </span>
         </ButtonBase>
-        
       ))}
     </div>
   );
