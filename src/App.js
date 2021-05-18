@@ -14,6 +14,8 @@ import EditProfile from './component/EditProfile'
 import Homepage from './component/Homepage'
 import DonateStripe from './component/DonateStripe'
 import UserChallengeDetails from './component/UserChallengeDetails'
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 
 class App extends Component {
 
@@ -191,7 +193,7 @@ class App extends Component {
 
     const {error, user} = this.state
 
-
+    
 
     
     return (

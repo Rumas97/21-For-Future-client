@@ -3,10 +3,14 @@ import wwf from "../otherImages/wwf.png"
 import vivaConAgua from "../otherImages/vivaconagua.png"
 import greenpeace from "../otherImages/greenpeace.png"
 import "./DonateStripe.css"
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import CheckoutForm from "./CheckoutForm"
 
 
 class DonateStripe extends Component {
     render() {
+        const promise = loadStripe("pk_test_51IpuJBFCggon7cbVElkeXUc6tLxwsgVCb0YWHffVmoyeowZW3imPfEVShdubMHhsAQK1DVJ6ZURtR1ToI7FSlGm800QUGfQR6J");
         return (
             <div>
                 <section> 
@@ -15,6 +19,11 @@ class DonateStripe extends Component {
                         <h2>Contribute to the cause</h2>
                         <p> 21 For Future collaborates with some cool organizations that are trying to make our planet a more sustainable place </p>
                         <p>All the money goes equally distributed between those organizations</p>
+                        <div className="App">
+                            <Elements stripe={promise}>
+                             <CheckoutForm />
+                            </Elements>
+                        </div>
                     </div>
 
                     <div id="partOne"> 
