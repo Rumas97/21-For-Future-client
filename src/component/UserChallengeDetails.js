@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { Component } from 'react'
 import config from '../config'
+import './ChallengeDetails.css'
 
 class UserChallengeDetails extends Component {
     state={
@@ -8,7 +9,7 @@ class UserChallengeDetails extends Component {
         days:1,
         dayToDisplay:null,
         daysDone: [],
-       
+        colorStatus:"#b7ff5a"
     }
 
     componentDidMount(){
@@ -22,7 +23,8 @@ class UserChallengeDetails extends Component {
             console.log('component did mount for userChallenges')
             this.setState({
                 userchallengeDetails: response.data.challengeId,
-                dayToDisplay: response.data.challengeId.challengeDay[0]
+                dayToDisplay: response.data.challengeId.challengeDay[0],
+                daysDone:response.data.dayTracker
             })
         })
         .catch(()=>{console.log('did not mount correctly for userChallenges')})
@@ -31,12 +33,13 @@ class UserChallengeDetails extends Component {
     handleDisplay=(day)=>{
         console.log(day)
         this.setState({
-            dayToDisplay:day
+            dayToDisplay:day,
+            
         })
     }
 
     handleDaysDone = (dayToDisplay) =>{
-        console.log(" the days done")
+        console.log(" Yummy!!!!")
         console.log(dayToDisplay)
 
         console.log(this.state.daysDone)
@@ -46,14 +49,14 @@ class UserChallengeDetails extends Component {
             dayTracker: dayToDisplay.day   //maybe problem here
            
         } , {withCredentials: true})
-            
             .then((response)=>{
                 console.log("WE ARE HERE NOW")
                 console.log(response.data)
                 this.setState({
-                    
-                   daysDone: [...response.data.dayTracker]
-                })
+                        daysDone: [...response.data.dayTracker],
+                     })
+                
+                
                 
                 console.log("new console for DAYS DONE")
                 console.log(this.state.daysDone)
@@ -73,28 +76,37 @@ class UserChallengeDetails extends Component {
         //front end we create a state for adding the days to the array
 
     render() {
-        const {userchallengeDetails,dayToDisplay} = this.state
+        const {userchallengeDetails,dayToDisplay,daysDone} = this.state
         if (!userchallengeDetails || !dayToDisplay){
             return (<h1>...Loading</h1>)
         }
 
         return (
             <div>
-                <p>{userchallengeDetails.challengeName}</p>
+                <h3>{userchallengeDetails.challengeName}</h3>
+                <img src={userchallengeDetails.challengeImage}/>
                 <p>{dayToDisplay.description}</p>
                 <p>{dayToDisplay.day}</p>
-                <button onClick={()=> this.handleDaysDone(dayToDisplay)} > check </button>   
-                 
-                <img src={userchallengeDetails.challengeImage}/>
+                <p><button onClick={()=> this.handleDaysDone(dayToDisplay)  } > Check </button> </p>               
                 {
                     userchallengeDetails.challengeDay.map((day,index)=>{
-                        return <button onClick={()=>this.handleDisplay(day)}>{index+1}</button>
+                        
+                            //if day is included in days array
+                           return daysDone.includes(day.day) ? 
+                           
+                                <button className="days-button-done" onClick={()=>this.handleDisplay(day)}>{index+1}</button> :
+                            
+                             
+                                <button className="days-button" onClick={()=>this.handleDisplay(day)}>{index+1}</button> 
+                            
                     })
                 }
-                
             </div>
         )
+                
+                
     }
+    
 }
 
 export default UserChallengeDetails
