@@ -9,13 +9,14 @@ import ChallengeDetails from './component/ChallengeDetails'
 import Signup from './component/Signup'
 import Login from './component/Login'
 import Profile from './component/Profile'
-import MenuAppBar from './component/Navbar'
+import NavigationBar from './component/Navbar'
 import EditProfile from './component/EditProfile'
 import Homepage from './component/Homepage'
 import DonateStripe from './component/DonateStripe'
 import UserChallengeDetails from './component/UserChallengeDetails'
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+
 
 class App extends Component {
 
@@ -193,12 +194,9 @@ class App extends Component {
 
     const {error, user} = this.state
 
-    
-
-    
     return (
       <div className='App'>
-        <MenuAppBar onLogout={this.handleLogout} user={user} />
+        <NavigationBar onLogout={this.handleLogout} user={user} />
         <Switch>
           <Route exact path='/' component={Homepage}/>
           <Route exact path="/signup" render={(routeProps)=>{
