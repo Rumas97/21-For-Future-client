@@ -4,6 +4,7 @@ import {Link} from "react-router-dom"
 import "./Profile.css"
 import axios from "axios"
 import config from "../config"
+import Avatar from "../otherImages/avatar.png"
 
 class Profile extends Component {
 
@@ -47,6 +48,8 @@ class Profile extends Component {
             <div>
                 <h1> Hey {user.username} ! Welcome to your profile 🌳</h1>
                 <Link to="/challenges" > <Button variant="outlined" color="secondary">Browse Challenges</Button> </Link>
+                
+                <img className="profile-image" default={Avatar} src={user.profilePic} alt= {user.username}/>
                 
 
                 <p>Username: {user.username}</p>

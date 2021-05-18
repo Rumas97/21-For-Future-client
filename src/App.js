@@ -134,6 +134,23 @@ class App extends Component {
 
   }
 
+  handleSubmitPicture=(event)=>{
+    event.preventDefault()
+
+    let image= event.target.imageUrl.files[0]
+    let formData= new FormData()
+    formData.append('imageUrl', image)
+
+    console.log(formData)
+    axios.post(`${config.API_URL}/api/upload`, formData,{withCredentials:true})
+    .then((response)=>{
+      this.setState({
+        user:response.data
+      })
+    })
+  }
+
+
   handleDeleteProfile = (userId) =>{
 
     const {_id} = this.state.user
@@ -194,7 +211,7 @@ class App extends Component {
          }} />
 
          <Route exact path="/profile/:id" render={(routeProps)=>{
-           return <EditProfile onEdit={this.handleEditProfile} {...routeProps} />
+           return <EditProfile onSubmitPicture={this.handleSubmitPicture} onEdit={this.handleEditProfile} {...routeProps} />
          }} />
 
           <Route exact path='/challenges' render={(routeProps)=>{
