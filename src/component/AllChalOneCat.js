@@ -3,7 +3,13 @@ import axios from 'axios'
 import config from '../config'
 import { Paper } from '@material-ui/core'
 import {Link} from 'react-router-dom'
-import {Button} from "@material-ui/core"
+//import {Button} from "@material-ui/core"
+import Button from 'react-bootstrap/Button';
+import Card from "react-bootstrap/Card"
+import 'bootstrap/dist/css/bootstrap.min.css'
+import imageOne from "../ecolifeImages/Battery.svg"
+
+
 
 
 class AllChalOneCat extends Component {
@@ -32,11 +38,24 @@ class AllChalOneCat extends Component {
                {
                    challenges.map((oneChallenge,index)=>{
                        return <div key={index}>
-                        <Link to={`/challenges/${categoryChallenges}/${oneChallenge._id}`}><h3>{oneChallenge.challengeName}</h3></Link>
-                    
+                        
+                        <Card style={{ width: '18rem' }}>
+                         <Card.Img variant="top" src={imageOne} />
+                        <Card.Body>
+                        <Card.Title>Card Title</Card.Title>
+                        <Card.Text>
+                        Some quick example text to build on the card title and make up the bulk of
+                        the card's content.
+                        </Card.Text>
+                        <Button variant="default"> <Link to={`/challenges/${categoryChallenges}/${oneChallenge._id}`}><h3>{oneChallenge.challengeName}</h3></Link>   </Button>
+                    </Card.Body>
+                </Card>
                        </div>
                    })
+                   
                } 
+               
+                
             </div>
         )
     }

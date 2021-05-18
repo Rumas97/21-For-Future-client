@@ -15,4 +15,10 @@ code {
 
 a{
   text-decoration: none;
+  color: black !important;
+}
+
+a:hover{
+  text-decoration: none !important;
+  color: yellowgreen !important
 }
