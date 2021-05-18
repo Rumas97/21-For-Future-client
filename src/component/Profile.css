@@ -2,17 +2,26 @@
 /*-----Overwriting Material Ui Components-*/
 .MuiButton-outlinedSecondary{
     color: black !important;
-    border: 1px solid #35420A !important;
+    border: 1px solid #82d120 !important;
     outline-style: none;
 }
 
 .MuiButton-outlinedSecondary:hover{
-    color: #35420A  !important;
+    color: #82d120  !important;
     border: 1px solid black !important;
     background-color: white !important;
 }
 
-/*-----anchor text deco out-*/
-/* a{
-    text-decoration: none;
-} */
+.MuiButtonBase-root{
+    color: black !important;
+    border: 1px solid black !important;
+    outline-style: none;
+}
+
+
+
+.MuiButton-outlined:hover{
+    background-color:black
+
+}
+

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ButtonBases from './CategoryButtons'
+import "./Categories.css"
 
 class Categories extends Component {
 

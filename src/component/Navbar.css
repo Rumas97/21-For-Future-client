@@ -8,5 +8,11 @@ a{
 }
 
 a:hover{
-    color:olive
+    color: #82d120
 }
+
+
+body{
+    background-color: white;
+}
+
