@@ -47,7 +47,11 @@ export default function Signup(props) {
             variant="outlined"
             />
         </div>
-        <Button type="submit" variant="outlined" color="default">Create your account</Button>
+        <button type="submit" className="newButtonOne" >Sign up!
+        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span></button>
         
     </form>
   );

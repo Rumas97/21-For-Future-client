@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import config from "../config"
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
+import { ButtonBase } from '@material-ui/core'
 
 
 
@@ -84,7 +85,7 @@ class EditProfile extends Component {
             type="password"
             autoComplete="current-password"
             variant="outlined" onChange={this.handlePasswordChange}  value={userProfile.password} />
-                <Button type="submit" variant="outlined" color="default" onClick={()=>{onEdit(userProfile)}} >Submit Changes</Button>
+                <ButtonBase type="submit"  className="newButtonOne" onClick={()=>{onEdit(userProfile)}} >Submit Changes</ButtonBase>
             </div>
             
         )

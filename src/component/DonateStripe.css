@@ -5,7 +5,7 @@
 }
 
 .greenpeaceImg{
-    height: 160px;
+    height: 100px;
     width: 360px
 
 }
@@ -24,6 +24,7 @@
 
 #partTwo{
     padding: 5px 20px 20px 20px;
+    
 
 }
 
@@ -41,17 +42,13 @@
   padding: 40px;
 } 
 
-/* input {
-  border-radius: 6px;
-  margin-bottom: 6px;
-  padding: 12px;
-  border: 1px solid rgba(50, 50, 93, 0.1);
-  max-height: 44px;
-  font-size: 16px;
-  width: 100%;
-  background: white;
-  box-sizing: border-box;
-} */
+.donationCard{
+  margin-top: 40px;
+  margin-bottom: 40px;
+  text-align: center;
+  display:flex;
+  flex-direction: column;
+}
 
 .InputElement is-empty Input Input--empty{
   border-radius: 6px;

@@ -35,6 +35,7 @@ const images = [
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+    flexDirection: "row",
     flexWrap: 'wrap',
     minWidth: 300,
     width: '100%',

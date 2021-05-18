@@ -9,3 +9,15 @@ li{
 .makeStyles-imageButton-11:hover{
     color:white;
 }
+
+.makeStyles-root-1 {
+    
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    min-width: 300px !important;
+    justify-content: center !important;
+    align-content: flex-end !important;
+    flex-direction: column !important;
+    align-items: center !important;
+}
+

@@ -47,7 +47,10 @@ class Profile extends Component {
         return (
             <div>
                 <h1> Hey {user.username} ! Welcome to your profile 🌳</h1>
-                <Link to="/challenges" > <Button variant="outlined" color="secondary">Browse Challenges</Button> </Link>
+                <Link to="/challenges" > <button className="newButtonOne">Browse Challenges <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span></button> </Link>
                 
                 <img className="profile-image" default={Avatar} src={user.profilePic} alt= {user.username}/>
                 
@@ -69,10 +72,17 @@ class Profile extends Component {
 
 
                
-                <Link to={`/profile/${user._id}`}> <Button variant="outlined" color="defaults">Edit Profile</Button> </Link>
+                <Link to={`/profile/${user._id}`}> <button className="newButtonOne">Edit Profile
+                <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span></button> </Link>
                 <br/>
                 <br/>
-                <div> <Button onClick={()=>{onDelete(user._id)}} variant="outlined" color="secondary">Delete your account</Button>
+                <div> <button onClick={()=>{onDelete(user._id)}} className="deleteProfButton">Delete your account <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span></button>
               </div>
 
             </div>

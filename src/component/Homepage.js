@@ -1,34 +1,67 @@
 import homepagecss from './Homepage.css'
 import React, { Component } from 'react'
 import EcoEducation from '../ecolifeImages/EcoEducation.svg'
+import EcoFood from "../ecolifeImages/EcoFoodandTransport.svg"
+import Clean from "../ecolifeImages/CleanMind.svg"
+
 import { Link } from 'react-router-dom'
 import Button from '@material-ui/core/Button';
 
+// <img className='home-image' src={EcoEducation} />
 class Homepage extends Component {
     render() {
         return (
             <div className='home-page'>
-                <h1>21 for future</h1>
-                <img className='home-image' src={EcoEducation} />
-            
-            
-              
-                <h2>Take action! Sign up now!</h2>
-
                 
-                <div>
-                    <Link to="/signup"> <Button variant="outlined" color="defaults">Create an account</Button> </Link> 
+                
+                <div id="homePageImage">
+                     <h1 className="LogoName">21 FOR FUTURE</h1>
+                     <h2>Take action now!</h2>
+                     
                 </div>
+            
+
+                <div id="homePageImage2">
+                    <div className="around">
+                        <img className='home-image' src={Clean}/>
+                        <h3>Create an account now to take place in our challenges</h3>
+                            <Link  to="/signup">   
+                                <button className="newButtonOne"> 
+                                    Sign up!
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                </button>
+                            </Link> 
+                    </div>
+
+                    
+                
 
 
-                <div> 
-                 <Link to="/challenges"> <Button variant="outlined" color="default">Check out our challenges</Button> </Link> 
-                </div>
+                    <div class="around"> 
+                        <img className='home-image' src={EcoFood}/>
 
-                <div> 
-                 <Link to="/donate"> <Button className="" variant="outlined" color="default">Donate</Button> </Link> 
-                </div>
+                        <h3>Check out our 21 day challenges to start making an impact</h3>
 
+                        <Link to="/challenges"> <button className="newButtonOne">Challenges  <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span></button> </Link> 
+                    </div>
+
+                    <div class="around"> 
+                        <img className='home-image' src={EcoEducation}/>
+
+                        <h3>Contribute with one of the three organizations we collaborate</h3>
+
+                        <Link to="/donate"> <button className="newButtonOne">Donate <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span></button> </Link> 
+                    </div>
+                </div>   
 
 
             </div>
