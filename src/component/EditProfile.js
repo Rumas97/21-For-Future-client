@@ -4,9 +4,12 @@ import config from "../config"
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 
+import "./Profile.css"
+
 
 
 class EditProfile extends Component {
+
 
     state = {
         userProfile: {}
@@ -49,32 +52,19 @@ class EditProfile extends Component {
 
     render() {
 
+       
         const {userProfile} = this.state
         const {onEdit,onSubmitPicture} = this.props
 
         return (
             
-            
-            <div>    
+            <div className="edit-profile">    
             <TextField id="outlined-required"
             type="text"
             name="username"
             label="Username"
             placeholder='Enter username here'
             variant="outlined" onChange={this.handleUsernameChange} value={userProfile.username} />
-
-            <form onSubmit ={onSubmitPicture} enctype="multipart/form-data">
-            <input type="file" 
-            name="imageUrl" 
-            accept="image/png, image/jpg"/>
-            
-            <Button type="submit">Submit</Button>
-            </form>
-            {/* <form method="POST" action="/upload" enctype="multipart/form-data">
-             <input type="file" name="imageUrl" accept="image/png, image/jpg"/>
-             <button type="submit">Submit</button> 
-            </form>   */}
-            
 
             <TextField
             id="outlined-password-input"
@@ -84,7 +74,16 @@ class EditProfile extends Component {
             type="password"
             autoComplete="current-password"
             variant="outlined" onChange={this.handlePasswordChange}  value={userProfile.password} />
-                <Button type="submit" variant="outlined" color="default" onClick={()=>{onEdit(userProfile)}} >Submit Changes</Button>
+            <Button type="submit" variant="outlined" color="default" onClick={()=>{onEdit(userProfile)}} >Submit Changes</Button>
+
+
+            <form className="change-picture" onSubmit ={onSubmitPicture} enctype="multipart/form-data">
+            <input type="file" 
+            name="imageUrl" 
+            accept="image/png, image/jpg"/>
+            
+            <Button type="submit">Change picture</Button>
+            </form>
             </div>
             
         )

@@ -65,30 +65,43 @@ class ChallengeDetails extends Component {
         }
 
         return (
-            <div>                
-                <h3>{challengeDetails.challengeName}</h3>
-                <img src={challengeDetails.challengeImage}/>
-                <br/>
-                <br/>
+            <div>
+                <h1>{challengeDetails.challengeName}</h1>
+                <div className="block">                
+                
+                    <div className="one-side">
+                        <img src={challengeDetails.challengeImage}/>
+                        <p>{challengeDetails.generalDesc}</p>
+                    </div>
+                
+                    <br/>
+                    <br/>
+
+                    <div className="one-side">
                         {
-                         user ? ( <Button variant="outlined" color="defaults" onClick={this.handleStart}>Start</Button>) : ("Hey, you need to login")
+                        user ? ( <Button variant="outlined" color="defaults" onClick={this.handleStart}>Start</Button>) : (<h5>Please login or signup to start this challenge</h5>) 
                         }
-                                <br></br>
-                                <br></br>
-                                {
-                    challengeDetails.challengeDay.map((day,index)=>{
-                        return <button className='days-button' key={index} onClick={()=>this.handleDisplay(day)}>{index+1}</button>
-                    })
-                }
+                        <br></br>
+                        <br></br>
+                        <div className="days-button-background">
+                            {
+                                challengeDetails.challengeDay.map((day,index)=>{
+                                    return <button className='days-button' key={index} onClick={()=>this.handleDisplay(day)}>{index+1}</button>
+                                })
+                            }
+                        </div>
+                        <br/>
+                        <div>
+                        <p>{dayToDisplay.day}</p>
+                        <p>{dayToDisplay.description}</p>
+                        </div>
+                    
+                        <br/>
+                        <iframe width="430" height="300" src="https://www.youtube.com/embed/TQtRv-wdaJU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                
 
-                <br/>
-                <p>{dayToDisplay.day}</p>
-                <p>{dayToDisplay.description}</p>
-
-
-                <br/>
-                <iframe width="430" height="300" src="https://www.youtube.com/embed/TQtRv-wdaJU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+                </div>
             </div>
         )
     }

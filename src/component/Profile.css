@@ -30,9 +30,40 @@
 
     display: inline-block;
     width: 150px;
-    height: 150px;
+    height: 150px; 
     border-radius: 50%;
     border: 1px solid black;
     object-fit: cover;
 }
+
+.edit-profile{
+    display:flex;  
+    flex-direction: column;
+    align-items: center; 
+    margin-top: 20px;
+}
+
+.change-picture{
+    display:flex;
+}
+
+.profile-page{
+    display:flex;  
+    flex-direction: column;
+    align-items: center; 
+}
+
+.user-details{
+    font-weight: bold;
+}
+
+.challenges-done{
+    box-sizing: border-box;
+    background-color:#b7ff5a;
+    box-shadow: 1px 1px 5px 0 rgb(102, 100, 100);
+    width: 300px;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
 

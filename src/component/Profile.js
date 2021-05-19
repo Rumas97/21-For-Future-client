@@ -45,30 +45,30 @@ class Profile extends Component {
         }
         
         return (
-            <div>
+            <div className="profile-page">
                 <h1> Hey {user.username} ! Welcome to your profile 🌳</h1>
-                <Link to="/challenges" > <Button variant="outlined" color="secondary">Browse Challenges</Button> </Link>
                 
-                <img className="profile-image" default={Avatar} src={user.profilePic} alt= {user.username}/>
+                
+                <img className="profile-image" defaultSrc={Avatar} src={user.profilePic} alt= {user.username}/>
                 
 
-                <p>Username: {user.username}</p>
-                <p>Email: {user.email}</p>
+                <p className= "user-details">Username: {user.username}</p>
+                <p className= "user-details">Email: {user.email}</p>
 
-                 <h2>CURRENT CHALLENGES</h2>   
+                 <h3>Current Challenges</h3>   
 
-                <h3> 
+                <h5 className="challenges-done"> 
                     {
                         userChallenges.map((oneChallenge)=>{
                             return <div> <Link to={`user-challenge/${oneChallenge._id}`}>  {oneChallenge.challengeId.challengeName} </Link>  </div>
                         })
                     }  
                     
-                    </h3>
+                    </h5>
 
 
 
-               
+                <Link to="/challenges" > <Button variant="outlined" color="secondary">Browse Challenges</Button> </Link>
                 <Link to={`/profile/${user._id}`}> <Button variant="outlined" color="defaults">Edit Profile</Button> </Link>
                 <br/>
                 <br/>

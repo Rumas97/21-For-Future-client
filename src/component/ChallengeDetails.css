@@ -42,3 +42,38 @@
     transition: .4s;
    
 }
+
+.block{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 50px;
+  height: 100%;  
+}
+
+.one-side{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;  
+}
+
+.one-side > img{
+    width:30rem;  
+  }
+
+
+.days-button-background{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    box-sizing: border-box;
+    background-color:#ffffff;
+    box-shadow: 1px 1px 5px 0 rgb(102, 100, 100);
+    width: 600px;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+
+
