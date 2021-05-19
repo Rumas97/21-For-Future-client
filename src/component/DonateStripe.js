@@ -3,8 +3,8 @@ import wwf from "../otherImages/wwf.png"
 import vivaConAgua from "../otherImages/vivaconagua.png"
 import greenpeace from "../otherImages/greenpeace.png"
 import "./DonateStripe.css"
-import { loadStripe } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js"
+import { Elements } from "@stripe/react-stripe-js"
 import CheckoutForm from "./CheckoutForm"
 
 

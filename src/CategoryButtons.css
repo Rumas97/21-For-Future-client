@@ -1,4 +1,8 @@
 .cat-button{
     text-decoration: none;
-    color:white
+    color:white 
+}
+
+.makeStyles-imageTitle-39:hover{
+    color: white !important
 }

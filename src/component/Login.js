@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-import Button from '@material-ui/core/Button';
+import React from 'react'
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import {Link} from "react-router-dom"
@@ -41,10 +40,11 @@ export default function Login(props) {
             />
         </div>
         <button type="submit" className="newButtonOne">Login
-        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span></button>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
         {error && (<p style={{color: "red"}}>  {error.error}</p>) }
         <br/>
         <br/>

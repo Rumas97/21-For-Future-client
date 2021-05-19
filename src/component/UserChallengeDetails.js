@@ -84,7 +84,7 @@ class UserChallengeDetails extends Component {
         return (
             <div>
                 <h3>{userchallengeDetails.challengeName}</h3>
-                <img src={userchallengeDetails.challengeImage}/>
+                <img src={userchallengeDetails.challengeImage} alt="challenge images"/>
                 <p>{dayToDisplay.description}</p>
                 <p>{dayToDisplay.day}</p>
                 <p><button onClick={()=> this.handleDaysDone(dayToDisplay)  } > Check </button> </p>               

@@ -3,9 +3,8 @@ import React, { Component } from 'react'
 import EcoEducation from '../ecolifeImages/EcoEducation.svg'
 import EcoFood from "../ecolifeImages/EcoFoodandTransport.svg"
 import Clean from "../ecolifeImages/CleanMind.svg"
-
 import { Link } from 'react-router-dom'
-import Button from '@material-ui/core/Button';
+
 
 // <img className='home-image' src={EcoEducation} />
 class Homepage extends Component {
@@ -23,7 +22,7 @@ class Homepage extends Component {
 
                 <div id="homePageImage2">
                     <div className="around">
-                        <img className='home-image' src={Clean}/>
+                        <img className='home-image' src={Clean} alt="clean"/>
                         <h3>Create an account now to take place in our challenges</h3>
                             <Link  to="/signup">   
                                 <button className="newButtonOne"> 
@@ -41,7 +40,7 @@ class Homepage extends Component {
 
 
                     <div class="around"> 
-                        <img className='home-image' src={EcoFood}/>
+                        <img className='home-image' src={EcoFood} alt="ecofood"/>
 
                         <h3>Check out our 21 day challenges to start making an impact</h3>
 
@@ -52,7 +51,7 @@ class Homepage extends Component {
                     </div>
 
                     <div class="around"> 
-                        <img className='home-image' src={EcoEducation}/>
+                        <img className='home-image' src={EcoEducation} alt="education Ilustration"/>
 
                         <h3>Contribute with one of the three organizations we collaborate</h3>
 

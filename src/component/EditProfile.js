@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import config from "../config"
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
-import { ButtonBase } from '@material-ui/core'
+import {Link} from "react-router-dom"
 
 
 
@@ -57,35 +57,41 @@ class EditProfile extends Component {
             
             
             <div>    
-            <TextField id="outlined-required"
-            type="text"
-            name="username"
-            label="Username"
-            placeholder='Enter username here'
-            variant="outlined" onChange={this.handleUsernameChange} value={userProfile.username} />
+                <TextField id="outlined-required"
+                type="text"
+                name="username"
+                label="Username"
+                placeholder='Enter username here'
+                variant="outlined" onChange={this.handleUsernameChange} value={userProfile.username} />
 
-            <form onSubmit ={onSubmitPicture} enctype="multipart/form-data">
-            <input type="file" 
-            name="imageUrl" 
-            accept="image/png, image/jpg"/>
-            
-            <Button type="submit">Submit</Button>
-            </form>
-            {/* <form method="POST" action="/upload" enctype="multipart/form-data">
-             <input type="file" name="imageUrl" accept="image/png, image/jpg"/>
-             <button type="submit">Submit</button> 
-            </form>   */}
-            
+                <form onSubmit ={onSubmitPicture} enctype="multipart/form-data">
+                    <input type="file" 
+                    name="imageUrl" 
+                    accept="image/png, image/jpg"/>
+                    
+                    <Button type="submit">Submit</Button>
+                </form>
+                {/* <form method="POST" action="/upload" enctype="multipart/form-data">
+                <input type="file" name="imageUrl" accept="image/png, image/jpg"/>
+                <button type="submit">Submit</button> 
+                </form>   */}
+                
 
-            <TextField
-            id="outlined-password-input"
-            type="password"
-            name="password"
-            label="Password"
-            type="password"
-            autoComplete="current-password"
-            variant="outlined" onChange={this.handlePasswordChange}  value={userProfile.password} />
-                <ButtonBase type="submit"  className="newButtonOne" onClick={()=>{onEdit(userProfile)}} >Submit Changes</ButtonBase>
+                <TextField
+                id="outlined-password-input"
+                type="password"
+                name="password"
+                label="Password"
+                type="password"
+                autoComplete="current-password"
+                variant="outlined" onChange={this.handlePasswordChange}  value={userProfile.password} />
+                    <button type="submit"  className="newButtonOne" onClick={()=>{onEdit(userProfile)}} >Submit Changes
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                    </button>
+                    <Link to="/profile"> Go back! </Link>
             </div>
             
         )

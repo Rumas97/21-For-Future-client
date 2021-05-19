@@ -1,4 +1,3 @@
-import { Button } from '@material-ui/core'
 import axios from 'axios'
 import React, { Component } from 'react'
 import config from '../config'
@@ -71,7 +70,9 @@ class ChallengeDetails extends Component {
                 <br/>
                 <br/>
                         {
-                         user ? ( <Button variant="outlined" color="defaults" onClick={this.handleStart}>Start</Button>) : ("Hey, you need to login")
+                         user ? ( <button className="newButtonOne" onClick={this.handleStart}>Start <span></span>
+                         <span></span>
+                         <span></span></button>) : ("Hey, you need to login")
                         }
                                 <br></br>
                                 <br></br>

@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react"
 import {
   CardElement,
   useStripe,
   useElements
-} from "@stripe/react-stripe-js";
+} from "@stripe/react-stripe-js"
 import config from '../config'
 
 export default function CheckoutForm() {
