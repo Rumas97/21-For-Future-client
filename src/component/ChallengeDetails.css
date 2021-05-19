@@ -7,12 +7,12 @@
     height: 50px;
     line-height: 50px;
     margin: 10px;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     text-align: center;
     vertical-align: middle;
-    overflow: hidden;
+    /* overflow: hidden; */
     box-shadow: 0px 0px 0px 5px #b7ff5a;
-    border: dashed 1px black;
+    /* border: dashed 1px black; */
     transition: .4s;
    
 }
@@ -21,7 +21,7 @@
     background: #4d9f00;
     box-shadow: 0px 0px 0px 5px #4d9f00;
     color: white;
-    border: dashed 1px white;
+    border: solid 1px white;
 }
 
 .days-button-done{
@@ -33,47 +33,64 @@
     height: 50px;
     line-height: 50px;
     margin: 10px;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     text-align: center;
     vertical-align: middle;
-    overflow: hidden;
+    /* overflow: hidden; */
     box-shadow: 0px 0px 0px 5px #4d9f00;
-    border: dashed 1px white;
+    border: solid 1px white;
     transition: .4s;
    
 }
 
 .block{
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-top: 50px;
-  height: 100%;  
-}
-
-.one-side{
-  display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 50%;  
+  justify-content: space-between;
+  margin-top: 20px;
+  height: 100%;
+  align-items: center; 
 }
 
-.one-side > img{
+.side-one{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.side-one > p{
+ width: 500px;
+}
+
+.side-one > img{
     width:30rem;  
   }
 
 
-.days-button-background{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    box-sizing: border-box;
-    background-color:#ffffff;
-    box-shadow: 1px 1px 5px 0 rgb(102, 100, 100);
-    width: 600px;
-    padding: 10px;
-    margin-bottom: 5px;
+.side-two{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 }
+
+
+
+
+.days-button-background{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 550px;
+  padding: 10px;
+  margin-bottom: 5px;
+  margin-right: 80px;
+}
+
+
 
 
 

@@ -65,10 +65,18 @@ class ChallengeDetails extends Component {
 
         return (
             <div>
-                <h1>{challengeDetails.challengeName}</h1>
+                <h1 className="heading">{challengeDetails.challengeName}</h1>
+                {
+                        user ? ( <button className="newButtonOne" onClick={this.handleStart}>Start
+                        {/* <span></span>
+                        <span></span>
+                        <span></span> */}
+                        </button>) : (<h5>Please login or signup to start this challenge</h5>) 
+                        }
+                
                 <div className="block">                
                 
-                    <div className="one-side">
+                    <div className="side-one">
                         <img src={challengeDetails.challengeImage} alt={challengeDetails.challengeName}/>
                         <p>{challengeDetails.generalDesc}</p>
                     </div>
@@ -76,14 +84,8 @@ class ChallengeDetails extends Component {
                     <br/>
                     <br/>
 
-                    <div className="one-side">
-                        {
-                        user ? ( <button className="newButtonOne" onClick={this.handleStart}>Start<span></span>
-                        <span></span>
-                        <span></span></button>) : (<h5>Please login or signup to start this challenge</h5>) 
-                        }
-                        <br></br>
-                        <br></br>
+                    <div className="side-two">
+
                         <div className="days-button-background">
                             {
                                 challengeDetails.challengeDay.map((day,index)=>{
@@ -92,15 +94,16 @@ class ChallengeDetails extends Component {
                             }
                         </div>
                         <br/>
-                        <div>
-                        <p>{dayToDisplay.day}</p>
-                        <p>{dayToDisplay.description}</p>
+                        <div className="day-desc">
+                            <h5>Day {dayToDisplay.day}</h5>
+                            <p>{dayToDisplay.description}</p>
                         </div>
                     
                         <br/>
-                        <iframe width="430" height="300" src="https://www.youtube.com/embed/TQtRv-wdaJU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        
                     </div>
-                
+
+                    
 
                 </div>
             </div>
