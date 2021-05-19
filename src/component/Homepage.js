@@ -1,4 +1,4 @@
-import homepagecss from './Homepage.css'
+import './Homepage.css'
 import React, { Component } from 'react'
 import EcoEducation from '../ecolifeImages/EcoEducation.svg'
 import EcoFood from "../ecolifeImages/EcoFoodandTransport.svg"
@@ -39,7 +39,7 @@ class Homepage extends Component {
                 
 
 
-                    <div class="around"> 
+                    <div className="around"> 
                         <img className='home-image' src={EcoFood} alt="ecofood"/>
 
                         <h3>Check out our 21 day challenges to start making an impact</h3>
@@ -50,7 +50,7 @@ class Homepage extends Component {
                                         <span></span></button> </Link> 
                     </div>
 
-                    <div class="around"> 
+                    <div className="around"> 
                         <img className='home-image' src={EcoEducation} alt="education Ilustration"/>
 
                         <h3>Contribute with one of the three organizations we collaborate</h3>

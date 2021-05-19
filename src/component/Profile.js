@@ -30,15 +30,8 @@ class Profile extends Component {
     render() {
         const {userChallenges} = this.state
         console.log(userChallenges) 
-        const {user, onDelete}=this.props
-        const {id} = this.props.match.params
-        
-
-
-        //const {challengeName} = this.state.userChallenges.challengeId
-     
+        const {user, onDelete}=this.props     
    
-
         if(!user || !userChallenges){
             return <h2>Loading ...</h2>
         }

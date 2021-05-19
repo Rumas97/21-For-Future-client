@@ -66,7 +66,7 @@ class ChallengeDetails extends Component {
         return (
             <div>                
                 <h3>{challengeDetails.challengeName}</h3>
-                <img src={challengeDetails.challengeImage}/>
+                <img src={challengeDetails.challengeImage} alt={challengeDetails.challengeName}/>
                 <br/>
                 <br/>
                         {

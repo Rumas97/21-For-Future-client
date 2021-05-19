@@ -1,20 +1,7 @@
-import React, { Component } from 'react'
+import React  from 'react'
 import { Link } from 'react-router-dom'
-import { makeStyles } from '@material-ui/core/styles'
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
-import Typography from '@material-ui/core/Typography'
-import IconButton from '@material-ui/core/IconButton'
-import MenuIcon from '@material-ui/icons/Menu'
-import AccountCircle from '@material-ui/icons/AccountCircle'
-import Switch from '@material-ui/core/Switch'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
-import FormGroup from '@material-ui/core/FormGroup'
-import MenuItem from '@material-ui/core/MenuItem'
-import Menu from '@material-ui/core/Menu'
-import Button from '@material-ui/core/Button';
 import"./Navbar.css"
-import { Nav, Navbar,NavDropdown } from 'react-bootstrap'
+import { Nav, Navbar} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 
@@ -29,13 +16,6 @@ function NavigationBar(props){
       <Nav className="mr-auto">
         <Nav.Link> <Link className="navbar-links" to="/challenges" > Challenges  </Link> </Nav.Link>
         <Nav.Link><Link className="navbar-links" to="/donate"> Donate </Link> </Nav.Link>
-        {/* <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-          <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-          <NavDropdown.Divider />
-          <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-        </NavDropdown> */}
       </Nav>
       <Nav>
         <Nav.Link className="navbar-links" href="#deets">{

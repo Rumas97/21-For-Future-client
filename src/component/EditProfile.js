@@ -82,7 +82,6 @@ class EditProfile extends Component {
                 type="password"
                 name="password"
                 label="Password"
-                type="password"
                 autoComplete="current-password"
                 variant="outlined" onChange={this.handlePasswordChange}  value={userProfile.password} />
                     <button type="submit"  className="newButtonOne" onClick={()=>{onEdit(userProfile)}} >Submit Changes

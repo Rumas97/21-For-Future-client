@@ -34,7 +34,6 @@ export default function Login(props) {
             type="password"
             name="password"
             label="Password"
-            type="password"
             autoComplete="current-password"
             variant="outlined"
             />

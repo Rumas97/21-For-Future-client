@@ -21,3 +21,13 @@ li{
     align-items: center !important;
 }
 
+.card{
+    box-shadow: 0px 10px 10px 10px rgba(0, 0, 0, 0.07);
+    transition: transform 0.4s;
+
+}
+
+.card:hover{
+    transform: scale(0.8);
+
+}
