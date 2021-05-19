@@ -39,10 +39,14 @@ class Profile extends Component {
         return (
             <div>
                 <h1> Hey {user.username} ! Welcome to your profile 🌳</h1>
-                <Link to="/challenges" > <button className="newButtonOne">Browse Challenges <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span></button> </Link>
+                <Link to="/challenges" > 
+                    <button className="newButtonOne">Browse Challenges 
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button> 
+                </Link>
                 
                 <img className="profile-image" default={Avatar} src={user.profilePic} alt= {user.username}/>
                 
@@ -50,7 +54,7 @@ class Profile extends Component {
                 <p>Username: {user.username}</p>
                 <p>Email: {user.email}</p>
 
-                 <h2>CURRENT CHALLENGES</h2>   
+                <h2>CURRENT CHALLENGES</h2>   
 
                 <h3> 
                     {

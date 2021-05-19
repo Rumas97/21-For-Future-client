@@ -11,7 +11,6 @@ li{
 }
 
 .makeStyles-root-1 {
-    
     display: flex !important;
     flex-wrap: nowrap !important;
     min-width: 300px !important;
@@ -27,7 +26,6 @@ li{
     margin-top: 50px;
     margin-left: 30px;
     margin-right: 30px
-    
 }
 
 .card:hover{

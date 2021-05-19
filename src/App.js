@@ -23,7 +23,6 @@ class App extends Component {
     user: null,
     error: null,
     fetchingUser: true,
-    userProfile: null,
   }
 
   handleSignUp = (event) => {
@@ -175,6 +174,8 @@ class App extends Component {
       })
 
   }
+
+ 
  
   componentDidMount(){        
 

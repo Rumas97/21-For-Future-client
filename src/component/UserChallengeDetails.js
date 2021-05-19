@@ -70,10 +70,26 @@ class UserChallengeDetails extends Component {
 
     }
 
+    handleQuitChallenge = () =>{
 
-        //button will have an on click event 
-        //patch request with the ID and the number 
-        //front end we create a state for adding the days to the array
+        let userChallengeDetailsId = this.props.match.params.id
+        axios.delete(`${config.API_URL}/api/user-challenge/${userChallengeDetailsId}`, {withCredentials: true})
+        .then(()=>{
+            this.setState({
+                userchallengeDetails: null
+            }, ()=>{
+                this.props.history.push("/profile")
+            } )
+        })
+
+        .catch(()=>{
+            console.log("deleting a challenge did not work")
+        })
+  
+
+    }
+
+
 
     render() {
         const {userchallengeDetails,dayToDisplay,daysDone} = this.state
@@ -87,7 +103,14 @@ class UserChallengeDetails extends Component {
                 <img src={userchallengeDetails.challengeImage} alt="challenge images"/>
                 <p>{dayToDisplay.description}</p>
                 <p>{dayToDisplay.day}</p>
-                <p><button onClick={()=> this.handleDaysDone(dayToDisplay)  } > Check </button> </p>               
+                <button onClick={()=> this.handleQuitChallenge(userchallengeDetails)} > Quit the challenge  </button>
+                <p><button class="newButtonOne" onClick={()=> this.handleDaysDone(dayToDisplay)  } > Check 
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                       
+                    </button> </p>               
                 {
                     userchallengeDetails.challengeDay.map((day,index)=>{
                         
