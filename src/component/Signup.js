@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-import Button from '@material-ui/core/Button'
+import React from 'react'
 import TextField from '@material-ui/core/TextField'
 import { makeStyles } from '@material-ui/core/styles'
 
@@ -42,12 +41,15 @@ export default function Signup(props) {
             type="password"
             name="password"
             label="Password"
-            type="password"
             autoComplete="current-password"
             variant="outlined"
             />
         </div>
-        <Button type="submit" variant="outlined" color="default">Create your account</Button>
+        <button type="submit" className="newButtonOne" >Sign up!
+        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span></button>
         
     </form>
   );

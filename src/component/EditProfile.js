@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import config from "../config"
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
+import {Link} from "react-router-dom"
 
 import "./Profile.css"
 
@@ -12,13 +13,16 @@ class EditProfile extends Component {
 
 
     state = {
-        userProfile: {}
+        userProfile: {},
+        editedProfile:{}
     }
 
     componentDidMount(){
         let userProfileId = this.props.match.params.id
-        axios.get(`${config.API_URL}/profile/${userProfileId}`)
+        axios.get(`${config.API_URL}/api/profile`, {withCredentials:true} )
             .then((response)=>{
+                console.log("new response from today")
+                console.log(response.data)
                 this.setState({
                     userProfile: response.data
                 })
@@ -35,7 +39,8 @@ class EditProfile extends Component {
         let clonedUserProfile = JSON.parse(JSON.stringify(this.state.userProfile))
         clonedUserProfile.username = name
         this.setState({
-            userProfile: clonedUserProfile
+            userProfile: clonedUserProfile,
+            editedProfile: { ...this.state.editedProfile, username: name}
         })
     }
 
@@ -45,45 +50,63 @@ class EditProfile extends Component {
         let clonedUserProfile = JSON.parse(JSON.stringify(this.state.userProfile))
         clonedUserProfile.password = password
         this.setState({
-            userProfile: clonedUserProfile
+            userProfile: clonedUserProfile,
+            editedProfile: { ...this.state.editedProfile, password}
         })
 
     }
 
+    handlePictureChange = (event) =>{
+        let profilePic = event.target.value
+        let clonedUserProfile = JSON.parse(JSON.stringify(this.state.userProfile))
+        clonedUserProfile.profilePic = profilePic
+        this.setState({
+            userProfile: clonedUserProfile,
+            editedProfile: { ...this.state.editedProfile, profilePic}
+        })
+
+    }
+
+
+   
+
     render() {
 
-       
-        const {userProfile} = this.state
+        const {userProfile, editedProfile} = this.state
         const {onEdit,onSubmitPicture} = this.props
-
         return (
             
-            <div className="edit-profile">    
-            <TextField id="outlined-required"
-            type="text"
-            name="username"
-            label="Username"
-            placeholder='Enter username here'
-            variant="outlined" onChange={this.handleUsernameChange} value={userProfile.username} />
-
-            <TextField
-            id="outlined-password-input"
-            type="password"
-            name="password"
-            label="Password"
-            type="password"
-            autoComplete="current-password"
-            variant="outlined" onChange={this.handlePasswordChange}  value={userProfile.password} />
-            <Button type="submit" variant="outlined" color="default" onClick={()=>{onEdit(userProfile)}} >Submit Changes</Button>
-
-
-            <form className="change-picture" onSubmit ={onSubmitPicture} enctype="multipart/form-data">
-            <input type="file" 
-            name="imageUrl" 
-            accept="image/png, image/jpg"/>
             
-            <Button type="submit">Change picture</Button>
-            </form>
+            <div>    
+                <TextField id="outlined-required"
+                type="text"
+                name="username"
+                placeholder='Enter username here'
+                variant="outlined" onChange={this.handleUsernameChange} value={userProfile.username} />
+
+                <form  onSubmit ={onSubmitPicture} enctype="multipart/form-data">
+                    <input type="file" 
+                    name="imageUrl" 
+                    accept="image/png, image/jpg"/>
+                    
+                    <Button onSubmit={this.handlePictureChange} value={userProfile.profilePic} type="submit">Submit</Button>
+                </form>
+                
+
+                <TextField
+                id="outlined-password-input"
+                type="password"
+                name="password"
+                label="Password"
+                autoComplete="current-password"
+                variant="outlined" onChange={this.handlePasswordChange}  />
+                <button type="submit"  className="newButtonOne" onClick={()=>{onEdit(editedProfile)}} >Submit Changes
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                </button>
+                <Link to="/profile"> Go back! </Link>
             </div>
             
         )

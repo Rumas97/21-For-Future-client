@@ -1,4 +1,3 @@
-import { Button } from '@material-ui/core'
 import axios from 'axios'
 import React, { Component } from 'react'
 import config from '../config'
@@ -70,7 +69,7 @@ class ChallengeDetails extends Component {
                 <div className="block">                
                 
                     <div className="one-side">
-                        <img src={challengeDetails.challengeImage}/>
+                        <img src={challengeDetails.challengeImage} alt={challengeDetails.challengeName}/>
                         <p>{challengeDetails.generalDesc}</p>
                     </div>
                 
@@ -79,7 +78,9 @@ class ChallengeDetails extends Component {
 
                     <div className="one-side">
                         {
-                        user ? ( <Button variant="outlined" color="defaults" onClick={this.handleStart}>Start</Button>) : (<h5>Please login or signup to start this challenge</h5>) 
+                        user ? ( <button className="newButtonOne" onClick={this.handleStart}>Start<span></span>
+                        <span></span>
+                        <span></span></button>) : (<h5>Please login or signup to start this challenge</h5>) 
                         }
                         <br></br>
                         <br></br>

@@ -1,15 +1,16 @@
-import { Button } from '@material-ui/core'
 import React, { Component } from 'react'
 import {Link} from "react-router-dom"
 import "./Profile.css"
 import axios from "axios"
 import config from "../config"
-import Avatar from "../otherImages/avatar.png"
+import avatar from "../otherImages/avatar.png"
 
 class Profile extends Component {
 
     state={
-        userChallenges: null
+        userChallenges: null,
+        image: true
+   
     }
 
     componentDidMount(){
@@ -19,7 +20,8 @@ class Profile extends Component {
             console.log("response from userChallenges to display")
             console.log(response.data)
             this.setState({
-                userChallenges: response.data
+                userChallenges: response.data,
+                image: true
                 
             })
         })
@@ -27,19 +29,18 @@ class Profile extends Component {
             console.log('we dont see the user challenges')
         })
     }
+
+    
+
+    // <img className="profile-image"  src={user.profilePic} alt= {user.username} />  ORIGINAL STATE 
+
     
     render() {
         const {userChallenges} = this.state
         console.log(userChallenges) 
-        const {user, onDelete}=this.props
-        const {id} = this.props.match.params
+        const {user, onDelete}=this.props     
         
-
-
-        //const {challengeName} = this.state.userChallenges.challengeId
-     
    
-
         if(!user || !userChallenges){
             return <h2>Loading ...</h2>
         }
@@ -47,15 +48,26 @@ class Profile extends Component {
         return (
             <div className="profile-page">
                 <h1> Hey {user.username} ! Welcome to your profile 🌳</h1>
+                <Link to="/challenges" > 
+                    <button className="newButtonOne">Browse Challenges 
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button> 
+                </Link>
                 
+                    {
+                        !user.profilePic ? (<img className="profile-image" src={avatar} />) : (<img className="profile-image" src={user.profilePic} alt= {user.username} />)
+                    }    
+
                 
-                <img className="profile-image" defaultSrc={Avatar} src={user.profilePic} alt= {user.username}/>
                 
 
                 <p className= "user-details">Username: {user.username}</p>
                 <p className= "user-details">Email: {user.email}</p>
 
-                 <h3>Current Challenges</h3>   
+                <h3>Current Challenges</h3>   
 
                 <h5 className="challenges-done"> 
                     {
@@ -64,16 +76,23 @@ class Profile extends Component {
                         })
                     }  
                     
-                    </h5>
-
-
-
-                <Link to="/challenges" > <Button variant="outlined" color="secondary">Browse Challenges</Button> </Link>
-                <Link to={`/profile/${user._id}`}> <Button variant="outlined" color="defaults">Edit Profile</Button> </Link>
+                </h5>
+               
+                <Link to={`/profile/${user._id}`}> 
+                    <button className="newButtonOne">Edit Profile
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button> 
+                </Link>
                 <br/>
                 <br/>
-                <div> <Button onClick={()=>{onDelete(user._id)}} variant="outlined" color="secondary">Delete your account</Button>
-              </div>
+                 <button onClick={()=>{onDelete(user._id)}} className="deleteProfButton">Delete your account <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span></button>
+              
 
             </div>
         )

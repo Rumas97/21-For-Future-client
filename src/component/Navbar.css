@@ -3,24 +3,25 @@
     background-color: white !important;
 }
 
-a{
-    color: black
-}
-
-a:hover{
-    color: #82d120
-}
-
 
 body{
     background-color: white;
 }
 
 .navbar{
-    background-color:#82d120;
+    background-color:white;
 }
 
 .navbar-links{
-    color: white;
+   font-size: 22px;
+   padding-right: 10px;
+   padding-left: 10px;
+   
+
 }
 
+
+
+.navbar-links:hover{
+    color: #4d9f00 !important
+}

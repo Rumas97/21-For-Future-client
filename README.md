@@ -20,7 +20,7 @@ An app to be aware of environmental issues and take 21 day challenges to make an
 - Information about environmental issues (open for all) with an API. 
 - Map with Pop up on different countries with cool environmental information (open for all)
 - Map showing people using the app (could maybe be the same map??)
-- Sign up with Google, Facebook
+- Sign up with Google, Facebook **PRIORITY ONE**
 - Users can share information about their challenges on social media 
 
 <br>

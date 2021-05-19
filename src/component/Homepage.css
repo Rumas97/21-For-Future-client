@@ -1,16 +1,168 @@
-.home-image{
-    width:400px;
-    height: 300px;
-}
 
 .MuiButton-outlinedSecondary{
     color: black !important;
-    border: 1px solid green !important;
+    border: 1px solid #4d9f00 !important;
     outline-style: none;
 }
 
 .MuiButton-outlinedSecondary:hover{
-    color: green !important;
+    color: #4d9f00 !important;
     border: 1px solid black !important;
     background-color: white !important;
 }
+
+#homePageImage{
+    background-color:white
+}
+
+
+.home-image{
+    width: 250px;
+}
+
+.newButtons{
+    background-color: #4d9f00
+}
+
+#homePageImage2{
+    background-color:white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 60px 20px 20px 20px;
+}
+
+.around{
+    padding: 10px 10px 10px 10px;
+}
+
+
+form {
+    width: 30vw !important
+}
+
+
+.newButtonOne{
+    width:200px;
+    height:50px;
+    background: linear-gradient(to left top, #82d120 50%, #4d9f00 50%);
+    border-style: none;
+    color:#fff;
+    font-size: 18px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    padding: 0px;
+    margin-top: 15px;
+    overflow: hidden;
+    transition: all .5s;
+    box-shadow: 0px 1px 2px rgba(0,0,0,.2);
+}
+.newButtonOne span{
+    position: absolute;
+    display: block;
+}
+.newButtonOne span:nth-child(1){
+    height: 3px;
+    width:200px;
+    top:0px;
+    left:-200px;
+    background: linear-gradient(to right, rgba(0,0,0,0), #f6e58d);
+    border-top-right-radius: 1px;
+    border-bottom-right-radius: 1px;
+    animation: span1 2s linear infinite;
+    animation-delay: 1s;
+}
+
+@keyframes span1{
+    0%{
+        left:-200px
+    }
+    100%{
+        left:200px;
+    }
+}
+.newButtonOne span:nth-child(2){
+    height: 70px;
+    width: 3px;
+    top:-70px;
+    right:0px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0), #f6e58d);
+    border-bottom-left-radius: 1px;
+    border-bottom-right-radius: 1px;
+    animation: span2 2s linear infinite;
+    animation-delay: 2s;
+}
+@keyframes span2{
+    0%{
+        top:-70px;
+    }
+    100%{
+        top:70px;
+    }
+}
+.newButtonOne span:nth-child(3){
+    height:3px;
+    width:200px;
+    right:-200px;
+    bottom: 0px;
+    background: linear-gradient(to left, rgba(0,0,0,0), #f6e58d);
+    border-top-left-radius: 1px;
+    border-bottom-left-radius: 1px;
+    animation: span3 2s linear infinite;
+    animation-delay: 3s;
+}
+@keyframes span3{
+    0%{
+        right:-200px;
+    }
+    100%{
+        right: 200px;
+    }
+}
+
+.newButtonOne span:nth-child(4){
+    height:70px;
+    width:3px;
+    bottom:-70px;
+    left:0px;
+    background: linear-gradient(to top, rgba(0,0,0,0), #f6e58d);
+    border-top-right-radius: 1px;
+    border-top-left-radius: 1px;
+    animation: span4 2s linear infinite;
+    animation-delay: 4s;
+}
+@keyframes span4{
+    0%{
+        bottom: -70px;
+    }
+    100%{
+        bottom:70px;
+    }
+}
+
+.newButtonOne:hover{
+    transition: all .5s;
+    transform: rotate(-3deg) scale(1.1);
+    box-shadow: 0px 3px 5px rgba(0,0,0,.4);
+    color: black
+}
+.newButtonOne:hover span{
+    animation-play-state: paused;
+}
+
+
+
+
+  
+
+@media (max-width: 1200px)  {
+    #homePageImage2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    }
+}
+

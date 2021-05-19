@@ -70,10 +70,26 @@ class UserChallengeDetails extends Component {
 
     }
 
+    handleQuitChallenge = () =>{
 
-        //button will have an on click event 
-        //patch request with the ID and the number 
-        //front end we create a state for adding the days to the array
+        let userChallengeDetailsId = this.props.match.params.id
+        axios.delete(`${config.API_URL}/api/user-challenge/${userChallengeDetailsId}`, {withCredentials: true})
+        .then(()=>{
+            this.setState({
+                userchallengeDetails: null
+            }, ()=>{
+                this.props.history.push("/profile")
+            } )
+        })
+
+        .catch(()=>{
+            console.log("deleting a challenge did not work")
+        })
+  
+
+    }
+
+
 
     render() {
         const {userchallengeDetails,dayToDisplay,daysDone} = this.state
@@ -84,10 +100,27 @@ class UserChallengeDetails extends Component {
         return (
             <div>
                 <h3>{userchallengeDetails.challengeName}</h3>
-                <img src={userchallengeDetails.challengeImage}/>
+                <img src={userchallengeDetails.challengeImage} alt="challenge images"/>
+
+                <button className="deleteProfButton" onClick={()=> this.handleQuitChallenge(userchallengeDetails)} > Quit the challenge
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>  
+                </button>
+
                 <p>{dayToDisplay.description}</p>
                 <p>{dayToDisplay.day}</p>
-                <p><button onClick={()=> this.handleDaysDone(dayToDisplay)  } > Check </button> </p>               
+             
+                <div>
+                    <button class="newButtonOne" onClick={()=> this.handleDaysDone(dayToDisplay)  } > Check 
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                       
+                    </button> 
+                </div>    
                 {
                     userchallengeDetails.challengeDay.map((day,index)=>{
                         

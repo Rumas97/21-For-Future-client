@@ -11,19 +11,6 @@ class Categories extends Component {
                     <h1>Our Challenges </h1>
                     <p>Browse through the four main categories and take action now. Every small step counts!</p>
                   <ButtonBases />
-        
-                {/* {
-                    category.map((oneCategory,index)=>{
-                        return <div key={index}>
-                            <ul>
-                                <li><Link to={`challenges/${oneCategory}`}>{oneCategory}</Link></li>
-                            </ul>
-
-                            
-                       </div>
-                        
-                    })
-                } */}
                 
             </div>
         )

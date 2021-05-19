@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import Button from '@material-ui/core/Button';
+import React from 'react'
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
+import {Link} from "react-router-dom"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,14 +34,22 @@ export default function Login(props) {
             type="password"
             name="password"
             label="Password"
-            type="password"
             autoComplete="current-password"
             variant="outlined"
             />
         </div>
-        <Button type="submit" variant="outlined" color="defaults">Login</Button>
+        <button type="submit" className="newButtonOne">Login
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
         {error && (<p style={{color: "red"}}>  {error.error}</p>) }
+        <br/>
+        <br/>
+        <p>Don't you have an account? <Link to="/signup" className="otherAnc"> Sign up now!</Link> </p>
     </form>
+
   );
 }
 
