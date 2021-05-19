@@ -48,6 +48,17 @@ class EditProfile extends Component {
 
     }
 
+    handlePictureChange = (event) =>{
+        let picture = event.target.value
+        let clonedUserProfile = JSON.parse(JSON.stringify(this.state.userProfile))
+        clonedUserProfile.profilePic = picture
+        this.setState({
+            userProfile: clonedUserProfile
+        })
+
+
+    }
+
     render() {
 
         const {userProfile} = this.state
@@ -64,17 +75,13 @@ class EditProfile extends Component {
                 placeholder='Enter username here'
                 variant="outlined" onChange={this.handleUsernameChange} value={userProfile.username} />
 
-                <form onSubmit ={onSubmitPicture} enctype="multipart/form-data">
+                <form  onSubmit ={onSubmitPicture} enctype="multipart/form-data">
                     <input type="file" 
                     name="imageUrl" 
                     accept="image/png, image/jpg"/>
                     
-                    <Button type="submit">Submit</Button>
+                    <Button  onSubmit={this.handlePictureChange} value={userProfile.profilePic} type="submit">Submit</Button>
                 </form>
-                {/* <form method="POST" action="/upload" enctype="multipart/form-data">
-                <input type="file" name="imageUrl" accept="image/png, image/jpg"/>
-                <button type="submit">Submit</button> 
-                </form>   */}
                 
 
                 <TextField

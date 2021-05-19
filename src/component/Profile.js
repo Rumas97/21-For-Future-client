@@ -3,12 +3,14 @@ import {Link} from "react-router-dom"
 import "./Profile.css"
 import axios from "axios"
 import config from "../config"
-import Avatar from "../otherImages/avatar.png"
+import avatar from "../otherImages/avatar.png"
 
 class Profile extends Component {
 
     state={
-        userChallenges: null
+        userChallenges: null,
+        image: true
+   
     }
 
     componentDidMount(){
@@ -18,7 +20,8 @@ class Profile extends Component {
             console.log("response from userChallenges to display")
             console.log(response.data)
             this.setState({
-                userChallenges: response.data
+                userChallenges: response.data,
+                image: true
                 
             })
         })
@@ -26,11 +29,17 @@ class Profile extends Component {
             console.log('we dont see the user challenges')
         })
     }
+
+    
+
+    // <img className="profile-image"  src={user.profilePic} alt= {user.username} />  ORIGINAL STATE 
+
     
     render() {
         const {userChallenges} = this.state
         console.log(userChallenges) 
         const {user, onDelete}=this.props     
+        
    
         if(!user || !userChallenges){
             return <h2>Loading ...</h2>
@@ -48,7 +57,11 @@ class Profile extends Component {
                     </button> 
                 </Link>
                 
-                <img className="profile-image" default={Avatar} src={user.profilePic} alt= {user.username}/>
+                    {
+                        !user.profilePic ? (<img className="profile-image" src={avatar} />) : (<img className="profile-image" src={user.profilePic} alt= {user.username} />)
+                    }    
+
+                
                 
 
                 <p>Username: {user.username}</p>

@@ -17,9 +17,11 @@ class DonateStripe extends Component {
                     <div > 
                         <h1>DONATE</h1>
                         <h2>Contribute to the cause</h2>
+    
                         <br></br>
                         <p> 21 For Future collaborates with some cool organizations that are trying to make our planet a more sustainable place. </p>
                         <p>All the money goes equally distributed between those organizations</p>
+                    
                         <div className="donationCard">
                             <Elements  stripe={promise}>
                              <CheckoutForm />
