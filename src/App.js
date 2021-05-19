@@ -102,29 +102,16 @@ class App extends Component {
   }
 
   handleEditProfile = (user) =>{
-    console.log(user)
-    console.log("user is looost")
-    console.log(this.state)
+    
     const {_id} = this.state.user
 
-    axios.patch(`${config.API_URL}/api/profile/${_id}`, {
-      username: user.username,
-      password: user.password,
-    }, {withCredentials: true})
-      .then(()=>{
-        let newUserProfile = this.state.user.map((singleUserProfile)=>{
-          if (user.id === singleUserProfile._id){
-            singleUserProfile.username = user.username
-            singleUserProfile.password = user.password
-
-          }
-            return singleUserProfile
-        })
+    axios.patch(`${config.API_URL}/api/profile/${_id}`, user, {withCredentials: true})
+      .then((response)=>{
 
         this.setState({
-          user: newUserProfile
+          user: response.data
         }, ()=>{
-          this.props.history.push("/")
+          this.props.history.push("/profile")
         })
 
       })

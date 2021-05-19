@@ -77,22 +77,22 @@ class Profile extends Component {
                     }  
                     
                     </h3>
-
-
-
                
-                <Link to={`/profile/${user._id}`}> <button className="newButtonOne">Edit Profile
-                <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span></button> </Link>
+                <Link to={`/profile/${user._id}`}> 
+                    <button className="newButtonOne">Edit Profile
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button> 
+                </Link>
                 <br/>
                 <br/>
-                <div> <button onClick={()=>{onDelete(user._id)}} className="deleteProfButton">Delete your account <span></span>
+                 <button onClick={()=>{onDelete(user._id)}} className="deleteProfButton">Delete your account <span></span>
                                         <span></span>
                                         <span></span>
                                         <span></span></button>
-              </div>
+              
 
             </div>
         )

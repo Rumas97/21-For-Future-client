@@ -5,6 +5,8 @@ import {
   useElements
 } from "@stripe/react-stripe-js"
 import config from '../config'
+import { Form } from "react-bootstrap";
+
 
 export default function CheckoutForm() {
   const [succeeded, setSucceeded] = useState(false);
@@ -91,6 +93,9 @@ export default function CheckoutForm() {
 
   return (
     <>
+    <h3> Enter your donation below</h3>
+      <div  className="donationInput" >  <input  type="number" min="0" onChange={handleDonation} placeholder="0€" ></input> </div> 
+    
     <form id="payment-form" onSubmit={handleSubmit}>
       <CardElement id="card-element" options={cardStyle} onChange={handleChange} />
       <button
@@ -123,8 +128,8 @@ export default function CheckoutForm() {
       </p>
     </form>
     
-     <div> <input type="number" min="0" onChange={handleDonation}  ></input> </div>
-
+     
+   
     </>
   );
 }

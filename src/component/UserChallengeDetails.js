@@ -101,16 +101,26 @@ class UserChallengeDetails extends Component {
             <div>
                 <h3>{userchallengeDetails.challengeName}</h3>
                 <img src={userchallengeDetails.challengeImage} alt="challenge images"/>
+
+                <button className="deleteProfButton" onClick={()=> this.handleQuitChallenge(userchallengeDetails)} > Quit the challenge
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>  
+                </button>
+
                 <p>{dayToDisplay.description}</p>
                 <p>{dayToDisplay.day}</p>
-                <button onClick={()=> this.handleQuitChallenge(userchallengeDetails)} > Quit the challenge  </button>
-                <p><button class="newButtonOne" onClick={()=> this.handleDaysDone(dayToDisplay)  } > Check 
+             
+                <div>
+                    <button class="newButtonOne" onClick={()=> this.handleDaysDone(dayToDisplay)  } > Check 
                                         <span></span>
                                         <span></span>
                                         <span></span>
                                         <span></span>
                                        
-                    </button> </p>               
+                    </button> 
+                </div>    
                 {
                     userchallengeDetails.challengeDay.map((day,index)=>{
                         

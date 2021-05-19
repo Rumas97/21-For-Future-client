@@ -183,3 +183,8 @@
   opacity: 0.5;
   cursor: default;
 }
+
+.donationInput{
+  margin-top: 20px;
+  margin-bottom: 20px
+}

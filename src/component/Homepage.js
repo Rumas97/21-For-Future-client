@@ -10,8 +10,7 @@ import { Link } from 'react-router-dom'
 class Homepage extends Component {
     render() {
         return (
-            <div className='home-page'>
-                
+            <div className='home-page'>   
                 
                 <div id="homePageImage">
                      <h1 className="LogoName">21 FOR FUTURE</h1>
@@ -19,10 +18,9 @@ class Homepage extends Component {
                      
                 </div>
             
-
                 <div id="homePageImage2">
                     <div className="around">
-                        <img className='home-image' src={Clean} alt="clean"/>
+                        <img className='home-image' src={Clean} alt="clean" loading="lazy"/>
                         <h3>Create an account now to take place in our challenges</h3>
                             <Link  to="/signup">   
                                 <button className="newButtonOne"> 
@@ -35,14 +33,10 @@ class Homepage extends Component {
                             </Link> 
                     </div>
 
-                    
-                
-
-
                     <div className="around"> 
-                        <img className='home-image' src={EcoFood} alt="ecofood"/>
+                        <img className='home-image' src={EcoFood} alt="ecofood" loading="lazy"/>
 
-                        <h3>Check out our 21 day challenges to start making an impact</h3>
+                        <h3>Our 21 day challenges, start one and make an impact</h3>
 
                         <Link to="/challenges"> <button className="newButtonOne">Challenges  <span></span>
                                         <span></span>
@@ -51,7 +45,7 @@ class Homepage extends Component {
                     </div>
 
                     <div className="around"> 
-                        <img className='home-image' src={EcoEducation} alt="education Ilustration"/>
+                        <img className='home-image' src={EcoEducation} alt="education Ilustration" loading="lazy"/>
 
                         <h3>Contribute with one of the three organizations we collaborate</h3>
 
@@ -61,11 +55,7 @@ class Homepage extends Component {
                                         <span></span></button> </Link> 
                     </div>
                 </div>   
-
-
             </div>
-
-
         )
     }
 }
