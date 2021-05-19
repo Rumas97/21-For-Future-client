@@ -23,6 +23,9 @@ class App extends Component {
     user: null,
     error: null,
     fetchingUser: true,
+    loggedInUser: null,
+    showLoading: true
+
   }
 
   handleSignUp = (event) => {
@@ -162,26 +165,69 @@ class App extends Component {
 
   }
 
- 
- 
-  componentDidMount(){        
+ //--- Sing up with Google Here ----//
+  handleGoogleSuccess= (data) => {
 
-    axios.get(`${config.API_URL}/api/profile`, {withCredentials: true})
+    this.setState({
+      showLoading: true
+    })
+  
+    const {givenName, familyName, email, imageUrl, googleId} = data.profileObj
+    let newUser = {
+      firstName: givenName,
+      lastName: familyName,
+      email,
+      image: imageUrl,
+      googleId
+    }
+  
+    axios.post(`${config.API_URL}/api/google/info`, newUser , {withCredentials: true})
+      .then((response) => {
+        this.setState({
+          loggedInUser: response.data.data,
+          error: null,
+          showLoading: false
+        }, () => {
+          this.props.history.push('/profile')
+        });
+      })
+  }
+
+
+  handleGoogleFailure = (error) => {
+    //TODO: Handle these errors yourself the way you want. Currently the state is not in use
+    console.log(error) 
+    this.setState({
+      error,
+    }); 
+  }
+
+
+ 
+ 
+  componentDidMount(){    
+      
+      axios.get(`${config.API_URL}/api/profile`, {withCredentials: true})
         .then((response)=>{
+         
             this.setState({
               user: response.data,
               fetchingUser: false,
-              
+  
             })
-           
+
+            
         })
 
         .catch(()=>{console.log('did not mount correctly')})
+
+
   }
 
   render() {
 
     const {error, user} = this.state
+
 
     return (
       <div className='App'>
@@ -189,14 +235,14 @@ class App extends Component {
         <Switch>
           <Route exact path='/' component={Homepage}/>
           <Route exact path="/signup" render={(routeProps)=>{
-            return <Signup onSubmit={this.handleSignUp} {...routeProps} /> 
+            return <Signup   onSubmit={this.handleSignUp} {...routeProps} /> 
           }}  />
          <Route exact path="/login" render={(routeProps)=>{
-           return <Login error={error} onLogin={this.handleLogin} {...routeProps}  />
+           return <Login onGoogleFailure={this.handleGoogleFailure} onGoogleSuccess={this.handleGoogleSuccess} error={error} onLogin={this.handleLogin} {...routeProps}  />
          }} />
 
          <Route exact path="/profile" render={(routeProps)=>{
-           return <Profile user={user} onDelete={this.handleDeleteProfile} {...routeProps} />
+           return <Profile  user={user} onDelete={this.handleDeleteProfile} {...routeProps} />
          }} />
 
          <Route exact path="/profile/:id" render={(routeProps)=>{

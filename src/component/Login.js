@@ -2,6 +2,8 @@ import React from 'react'
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import {Link} from "react-router-dom"
+import GoogleButton from './GoogleButton';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Login(props) {
   const classes = useStyles();
-  const {onLogin, error} = props
+  const {onLogin, error, onGoogleFailure, onGoogleSuccess} = props
 
   return (
     <form className={classes.root} onSubmit={onLogin} noValidate autoComplete="off">
@@ -48,6 +50,8 @@ export default function Login(props) {
         <br/>
         <br/>
         <p>Don't you have an account? <Link to="/signup" className="otherAnc"> Sign up now!</Link> </p>
+        <GoogleButton onSuccess={onGoogleSuccess} onFailure={onGoogleFailure} />
+
     </form>
 
   );

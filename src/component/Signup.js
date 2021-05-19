@@ -1,6 +1,7 @@
 import React from 'react'
 import TextField from '@material-ui/core/TextField'
 import { makeStyles } from '@material-ui/core/styles'
+import "./SignUp.css"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,7 +16,9 @@ export default function Signup(props) {
   const classes = useStyles();
   const {onSubmit} = props
 
+
   return (
+    <>
     <form className={classes.root} onSubmit={onSubmit} noValidate autoComplete="off">
         <div>
             <h1> Sign up Page </h1>
@@ -52,36 +55,13 @@ export default function Signup(props) {
                                         <span></span></button>
         
     </form>
+
+    
+    <h1 class="black-lives-matter">#SAVE THE PLANET</h1>
+    </>
   );
 }
 
-// class Signup extends Component {
-//     render() {
-//         const {onSubmit} = this.props
-//         return (
-//             <div>
-//                 <h1> Sign up Page </h1>
-//                 <form onSubmit={onSubmit} >
-//                     <div className="form-group">
-//                         <label htmlFor="InputUsername">Username</label>
-//                         <input type="text" className="form-control" id="InputUsername" name="username" />
-//                     </div>
-//                     <div className="form-group">
-//                         <label htmlFor="InputEmail">Email address</label>
-//                         <input type="email"  name="email" />
-//                         <small >We'll never share your email with anyone else.</small>
-//                     </div>
-//                     <div className="form-group">
-//                         <label htmlFor="InputPassword">Password</label>
-//                         <input name="password" type="password" className="form-control" id="InputPassword" />
-//                     </div>
-//                     <Button type="submit" variant="outlined" color="default">Create your account</Button>
-                    
-//                 </form>
 
-//             </div>
-//         )
-//     }
-// }
 
 // export default Signup
