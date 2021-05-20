@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import axios from 'axios'
 import React, { Component } from 'react'
 import config from '../config'
@@ -55,12 +56,20 @@ class ChallengeDetails extends Component {
         const {challengeDetails,dayToDisplay} = this.state
 
         if (!challengeDetails || !dayToDisplay){
-            return (<h1>...Loading</h1>)
+            return (<p>...Loading</p>)
         }
 
         return (
             <div>
                 <h1 className="heading">{challengeDetails.challengeName}</h1>
+
+                {
+                        user ? ( <button className="newButtonOne" onClick={this.handleStart}>Start
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        </button>) : (<p>*Please <Link to="/login" > login </Link> or <Link to="/signup" > signup  </Link> to start this challenge</p>) 
+                }
                 
                 
                 <div className="block">                
@@ -86,7 +95,7 @@ class ChallengeDetails extends Component {
                         </div>
                         <br/>
                         <div className="day-desc">
-                            <h5>Day {dayToDisplay.day}</h5>
+                            <h2>Day {dayToDisplay.day}</h2>
                             <p>{dayToDisplay.description}</p>
                         </div>
                     
@@ -94,13 +103,7 @@ class ChallengeDetails extends Component {
                         
                     </div>
 
-                    {
-                        user ? ( <button className="newButtonOne" onClick={this.handleStart}>Start
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        </button>) : (<h5>Please login or signup to start this challenge</h5>) 
-                        }
+                    
 
                 </div>
             </div>

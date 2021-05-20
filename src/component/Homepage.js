@@ -14,6 +14,7 @@ class Homepage extends Component {
                 <div>
                      <h1 className="LogoName">21 FOR FUTURE</h1>
 
+
                      <div class="wrapper">
                         <div class="typing-demo">
                            <h2>Take action now! </h2> 
