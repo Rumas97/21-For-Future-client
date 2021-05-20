@@ -6,11 +6,16 @@
 
 .greenpeaceImg{
     height: 100px;
-    width: 360px
+    width: 360px;
+    margin-left: 40px
 
 }
 
-
+.h2-donation{
+  padding-right: 50px;
+  padding-left: 50px;
+  font-weight: normal;
+}
 
 
 
@@ -18,6 +23,7 @@
   display: flex;
   flex-direction: row;
   align-items: flex-end;
+  
 
 
 }
@@ -27,8 +33,13 @@
   padding: 0px 40px 0px 40px
 }
 
-  
-
+.donation-back{
+ background-color: #fafafa;
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ justify-content: center;
+}
 
 #partOne{
     
