@@ -47,13 +47,10 @@ class AllChalOneCat extends Component {
 
                                 
                                     <Card  style={{ width: '18rem' }}>
-                                        <Card.Img variant="top" src={imageOne} alt="eco ilustration" />
+                                        <Card.Img variant="top" src={oneChallenge.challengeImage} alt="eco ilustration" />
                                         <Card.Body>
                                         <Button variant="default"> <Link to={`/challenges/${categoryChallenges}/${oneChallenge._id}`}><h3 className="anchorAllChall">{oneChallenge.challengeName}</h3></Link>   </Button>
-                                            <Card.Text>
-                                                Some quick example text to build on the card title and make up the bulk of
-                                                the card's content.
-                                            </Card.Text>
+                                           
                                         </Card.Body>
                                     </Card>
                                 

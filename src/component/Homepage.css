@@ -143,16 +143,11 @@ form {
     }
 }
 
-/* .newButtonOne:hover{
-    transition: all .5s;
-    transform: rotate(-3deg) scale(1.1);
+.newButtonOne:hover{
+    
     box-shadow: 0px 3px 5px rgba(0,0,0,.4);
     color: black
-} */
-/* .newButtonOne:hover span{
-    animation-play-state: paused;
-} */
-
+} 
 
 .wrapper {
     /*This part is important for centering*/
