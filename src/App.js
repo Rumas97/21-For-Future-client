@@ -14,6 +14,8 @@ import EditProfile from './component/EditProfile'
 import Homepage from './component/Homepage'
 import DonateStripe from './component/DonateStripe'
 import UserChallengeDetails from './component/UserChallengeDetails'
+import ServerError from './component/ServerError'
+import Footer from './component/Footer'
 
 
 
@@ -222,6 +224,7 @@ class App extends Component {
     return (
       <div className='App'>
         <NavigationBar onLogout={this.handleLogout} user={user} />
+
         <Switch>
           <Route exact path='/' component={Homepage}/>
           <Route exact path="/signup" render={(routeProps)=>{
@@ -256,8 +259,14 @@ class App extends Component {
           <Route exact path="/user-challenge/:id" render={(routeProps)=>{
             return <UserChallengeDetails user={user} {...routeProps} />
           }} />
+
+          
+
+          <Route component={ServerError}/>
  
           </Switch>
+          <br></br>
+          <Footer />
       </div>
     )
   }

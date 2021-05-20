@@ -11,8 +11,18 @@ class Categories extends Component {
                     <h1>Our Challenges </h1>
                     <p>Browse through the four main categories and take action now. Every small step counts!</p>
                   <ButtonBases />
-                
+                  <br></br>
+                  <br></br>
+                  <br></br>
+                  <br></br>
+                  <br></br>
+                  <br></br>
+                  <br></br>
+                  <br></br>
+                  <br></br>
+                  
             </div>
+            
         )
     }
 }

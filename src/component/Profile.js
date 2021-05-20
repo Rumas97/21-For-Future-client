@@ -76,6 +76,7 @@ class Profile extends Component {
                     </div>
 
                 </div>
+                <br></br>
             </div>
         )
     }
