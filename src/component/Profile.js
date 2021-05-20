@@ -53,46 +53,48 @@ class Profile extends Component {
         }
         
         return (
-            <div className="profile-page">
-                <h1> Hey {user.username} ! Welcome to your profile 🌳</h1>
-                <Link to="/challenges" > 
-                    <button className="newButtonOne">Browse Challenges 
+            <div>
+                <h1 className="heading"> Hey {user.username} ! Welcome to your profile 🌳</h1>
+                <div className="profile-page">
+                    <div className="side">
                         
-                    </button> 
-                </Link>
-                
-                    {
-                        !user.profilePic ? (<img className="profile-image" src={avatar} />) : (<img className="profile-image" src={user.profilePic} alt= {user.username} />)
-                    }    
-
-                
-                
-
-                <p className= "user-details">Username: {user.username}</p>
-                <p className= "user-details">Email: {user.email}</p>
-
-                <h3>Current Challenges</h3>   
-
-                <h5 className="challenges-done"> 
-                    {
-                        userChallenges.map((oneChallenge)=>{
-                            return <div> <Link to={`user-challenge/${oneChallenge._id}`}>  {oneChallenge.challengeId.challengeName} </Link>  </div>
-                        })
-                    }  
+                        {
+                                !user.profilePic ? (<img className="profile-image" src={avatar} />) : (<img className="profile-image" src={user.profilePic} alt= {user.username} />)
+                        } 
+                        <p>Username: {user.username}</p>
+                        <p>Email: {user.email}</p>
+                        <div>
+                            <Link to={`/profile/${user._id}`}> 
+                                <button className="newButtonOne">Edit Profile
+                                 
+                                </button> 
+                            </Link>
+                            <br/>
+                            <button onClick={()=>{onDelete(user._id)}} className="deleteProfButton">Delete your account 
+                                                   
+                            </button>
+                        </div>
+                    </div>
                     
-                </h5>
-               
-                <Link to={`/profile/${user._id}`}> 
-                    <button className="newButtonOne">Edit Profile
-                       
-                    </button> 
-                </Link>
-                <br/>
-                <br/>
-                 <button onClick={()=>{onDelete(user._id)}} className="deleteProfButton">Delete your account 
-                                        </button>
-              
+                    <div className="side">
+                        <h2>Current Challenges</h2>   
+                        <h3 > 
+                            {   userChallenges.length==0 ? (<h5>You haven't started any challenges yet!</h5>):
+                                userChallenges.map((oneChallenge)=>{
+                                    return <div className="challenges-done"> <Link to={`user-challenge/${oneChallenge._id}`}>  {oneChallenge.challengeId.challengeName} </Link>  </div>
+                                })
+                            }               
+                        </h3>
+                        <Link to="/challenges" > 
+                            <button className="newButtonOne">Browse Challenges 
+                              
+                            </button> 
+                        </Link>
+                    </div>
+                
+                
 
+                </div>
             </div>
         )
     }

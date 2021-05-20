@@ -54,13 +54,7 @@ export default function Login(props) {
         <GoogleButton onSuccess={onGoogleSuccess} onFailure={onGoogleFailure} />
 
     </form>
-        <br></br>
-        <br></br>
-        <br></br>
-        <div class="sign">
-        <span  class="fast-flicker">e</span>
-        art<span class="fast-flicker">h</span>
-        </div>
+        
     </>
 
   );

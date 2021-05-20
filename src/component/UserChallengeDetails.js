@@ -99,41 +99,46 @@ class UserChallengeDetails extends Component {
 
         return (
             <div>
-                <h3>{userchallengeDetails.challengeName}</h3>
-                <img src={userchallengeDetails.challengeImage} alt="challenge images"/>
+                <h1 className="heading">{userchallengeDetails.challengeName}</h1>
+                <div className="side-one">
+                    <img src={userchallengeDetails.challengeImage} alt="challenge images"/>
+                    <p>{userchallengeDetails.generalDesc}</p>
+                </div>
+
+                <div className="side-two">
+
+                    <div className="days-button-background">
+                        {
+                            userchallengeDetails.challengeDay.map((day,index)=>{
+                                return daysDone.includes(day.day) ? 
+                                    <button className="days-button-done" onClick={()=>this.handleDisplay(day)}>{index+1}</button> :
+                                    <button className="days-button" onClick={()=>this.handleDisplay(day)}>{index+1}</button>     
+                            })
+                        }
+                    </div> 
+                    <div className="day-desc">
+                        <h5>Day {dayToDisplay.day}</h5>
+                        <p>{dayToDisplay.description}</p>
+                        <button class="newButtonOne" onClick={()=> this.handleDaysDone(dayToDisplay)  } > Check 
+                                        {/* <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span> */}
+                                       
+                        </button>
+                    </div>
+
+                </div>  
 
                 <button className="deleteProfButton" onClick={()=> this.handleQuitChallenge(userchallengeDetails)} > Quit the challenge
                     
                 </button>
 
-                <p>{dayToDisplay.description}</p>
-                <p>{dayToDisplay.day}</p>
-             
-                <div>
-                    <button class="newButtonOne" onClick={()=> this.handleDaysDone(dayToDisplay)  } > Check 
-                                        
-                                       
-                    </button> 
-                </div>    
-                {
-                    userchallengeDetails.challengeDay.map((day,index)=>{
-                        
-                            //if day is included in days array
-                           return daysDone.includes(day.day) ? 
-                           
-                                <button className="days-button-done" onClick={()=>this.handleDisplay(day)}>{index+1}</button> :
-                            
-                             
-                                <button className="days-button" onClick={()=>this.handleDisplay(day)}>{index+1}</button> 
-                            
-                    })
-                }
+               
             </div>
         )
-                
-                
+          
     }
-    
 }
 
 export default UserChallengeDetails

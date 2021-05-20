@@ -24,6 +24,12 @@
 
 }
 
+.heading{
+    box-sizing: border-box;
+    background-color:#ffffff;
+    padding:10px;
+    box-shadow: 1px 1px 5px 0 rgb(102, 100, 100);
+}
 
 .profile-image{
 
@@ -33,6 +39,7 @@
     border-radius: 50%;
     border: 1px solid black;
     object-fit: cover;
+    margin-bottom: 10px;
 }
 
 .edit-profile{
@@ -48,21 +55,41 @@
 
 .profile-page{
     display:flex;  
-    flex-direction: column;
-    align-items: center; 
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
-.user-details{
+.side{
+    margin-top: 40px;
+}
+
+.side > p{
     font-weight: bold;
 }
 
+
+.side > h2{
+    margin-bottom: 30px;
+    font-size: 35px;
+}
+
+.side > h3{
+    font-size: 20px;
+    font-weight: 600;
+    color: #161616;
+}
+
+
+
 .challenges-done{
-    box-sizing: border-box;
-    background-color:#b7ff5a;
-    box-shadow: 1px 1px 5px 0 rgb(102, 100, 100);
-    width: 300px;
-    padding: 10px;
-    margin-bottom: 5px;
+
+    padding: 20px;
+    border-radius: 5px;
+    background: #cef799;
+    margin-bottom: 20px;
+    border-left: 4px solid rgb(85, 100, 2);
+    display: flex;
+    justify-content: space-between;
 }
 
 
