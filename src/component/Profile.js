@@ -4,6 +4,7 @@ import "./Profile.css"
 import axios from "axios"
 import config from "../config"
 import avatar from "../otherImages/avatar.png"
+import picture from "../ecolifeImages/EcoBag.svg"
 
 class Profile extends Component {
 
@@ -86,15 +87,15 @@ class Profile extends Component {
                             }               
                         </h3>
                         <Link to="/challenges" > 
-                            <button className="newButtonOne">Browse Challenges 
-                              
-                            </button> 
+                            <button className="newButtonOne">Browse Challenges</button> 
+                           
                         </Link>
                     </div>
-                
+                  
                 
 
                 </div>
+                <img className="profile-deco" src={picture} />
             </div>
         )
     }

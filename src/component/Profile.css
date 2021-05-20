@@ -28,7 +28,6 @@
     box-sizing: border-box;
     background-color:#ffffff;
     padding:10px;
-    box-shadow: 1px 1px 5px 0 rgb(102, 100, 100);
 }
 
 .profile-image{
@@ -90,6 +89,10 @@
     border-left: 4px solid rgb(85, 100, 2);
     display: flex;
     justify-content: space-between;
+}
+
+.profile-deco{
+    height: 200px;
 }
 
 
@@ -205,4 +208,13 @@
 }
 .deleteProfButton:hover span{
     animation-play-state: paused;
+}
+
+@media (max-width: 1200px)  {
+    .profile-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    }
+
 }
