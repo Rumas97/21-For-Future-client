@@ -262,9 +262,9 @@ class App extends Component {
           }} />
 
           
-
-          <Route component={ServerError}/>
           <Route component={NotFound} />
+          <Route component={ServerError}/>
+          
  
           </Switch>
           <br></br>
