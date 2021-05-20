@@ -2,6 +2,7 @@ import React from 'react'
 import TextField from '@material-ui/core/TextField'
 import { makeStyles } from '@material-ui/core/styles'
 import "./SignUp.css"
+import GoogleButton from './GoogleButton';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Signup(props) {
   const classes = useStyles();
-  const {onSubmit} = props
+  const {onSubmit,onGoogleFailure, onGoogleSuccess} = props
 
 
   return (
@@ -53,7 +54,7 @@ export default function Signup(props) {
                                         <span></span>
                                         <span></span>
                                         <span></span></button>
-        
+        <GoogleButton onSuccess={onGoogleSuccess} onFailure={onGoogleFailure} /> 
     </form>
 
     
@@ -64,4 +65,4 @@ export default function Signup(props) {
 
 
 
-// export default Signup
+

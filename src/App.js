@@ -24,7 +24,6 @@ class App extends Component {
     user: null,
     error: null,
     fetchingUser: true,
-    loggedInUser: null,
     showLoading: true
 
   }
@@ -184,8 +183,9 @@ class App extends Component {
   
     axios.post(`${config.API_URL}/api/google/info`, newUser , {withCredentials: true})
       .then((response) => {
+        console.log(response)
         this.setState({
-          loggedInUser: response.data.data,
+          user: response.data.data,
           error: null,
           showLoading: false
         }, () => {
@@ -236,7 +236,7 @@ class App extends Component {
         <Switch>
           <Route exact path='/' component={Homepage}/>
           <Route exact path="/signup" render={(routeProps)=>{
-            return <Signup   onSubmit={this.handleSignUp} {...routeProps} /> 
+            return <Signup  onGoogleFailure={this.handleGoogleFailure} onGoogleSuccess={this.handleGoogleSuccess} onSubmit={this.handleSignUp} {...routeProps} /> 
           }}  />
          <Route exact path="/login" render={(routeProps)=>{
            return <Login onGoogleFailure={this.handleGoogleFailure} onGoogleSuccess={this.handleGoogleSuccess} error={error} onLogin={this.handleLogin} {...routeProps}  />

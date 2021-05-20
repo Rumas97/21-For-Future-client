@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Login(props) {
   const classes = useStyles();
-  const {onLogin, error, onGoogleFailure, onGoogleSuccess} = props
+  const {onLogin, error,onGoogleFailure, onGoogleSuccess} = props
 
   return (
     <>
@@ -51,7 +51,8 @@ export default function Login(props) {
         <br/>
         <br/>
         <p>Don't you have an account? <Link to="/signup" className="otherAnc"> Sign up now!</Link> </p>
-        <GoogleButton onSuccess={onGoogleSuccess} onFailure={onGoogleFailure} />
+        <GoogleButton onSuccess={onGoogleSuccess} onFailure={onGoogleFailure} /> 
+        
 
     </form>
         
