@@ -15,14 +15,9 @@ class Profile extends Component {
     }
 
     componentDidMount(){
-
-        
-
-      
-            axios.get(`${config.API_URL}/api/user-challenge/all-challenges`,{withCredentials:true})
+    
+        axios.get(`${config.API_URL}/api/user-challenge/all-challenges`,{withCredentials:true})
         .then((response)=>{
-            console.log("response from userChallenges to display")
-            console.log(response.data)
             this.setState({
                 userChallenges: response.data,
                 image: true,
@@ -37,17 +32,10 @@ class Profile extends Component {
 
     }
 
-    
 
-    // <img className="profile-image"  src={user.profilePic} alt= {user.username} />  ORIGINAL STATE 
-
-    
     render() {
         const {userChallenges} = this.state
-        
-        console.log("userChallenges", userChallenges) 
         const {user, onDelete}=this.props     
-        console.log("user", user) 
    
         if(!user || !userChallenges){
             return <h2>Loading ...</h2>
@@ -66,20 +54,10 @@ class Profile extends Component {
                         <p>Email: {user.email}</p>
                         <div>
                             <Link to={`/profile/${user._id}`}> 
-                                <button className="newButtonOne">Edit Profile
-                                    {/* <span></span>
-                                    <span></span>
-                                    <span></span>
-                                    <span></span> */}
-                                </button> 
+                                <button className="newButtonOne">Edit Profile</button> 
                             </Link>
                             <br/>
-                            <button onClick={()=>{onDelete(user._id)}} className="deleteProfButton">Delete your account 
-                                                    {/* <span></span>
-                                                    <span></span>
-                                                    <span></span>
-                                                    <span></span> */}
-                            </button>
+                            <button onClick={()=>{onDelete(user._id)}} className="deleteProfButton">Delete your account </button>
                         </div>
                     </div>
                     
@@ -93,16 +71,9 @@ class Profile extends Component {
                             }               
                         </h3>
                         <Link to="/challenges" > 
-                            <button className="newButtonOne">Browse Challenges 
-                                {/* <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span> */}
-                            </button> 
+                            <button className="newButtonOne">Browse Challenges </button> 
                         </Link>
                     </div>
-                
-                
 
                 </div>
             </div>

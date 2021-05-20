@@ -5,17 +5,16 @@ import {
   useElements
 } from "@stripe/react-stripe-js"
 import config from '../config'
-import { Form } from "react-bootstrap";
 
 
 export default function CheckoutForm() {
-  const [succeeded, setSucceeded] = useState(false);
-  const [error, setError] = useState(null);
-  const [processing, setProcessing] = useState('');
-  const [disabled, setDisabled] = useState(true);
-  const [clientSecret, setClientSecret] = useState('');
-  const stripe = useStripe();
-  const elements = useElements();
+  const [succeeded, setSucceeded] = useState(false)
+  const [error, setError] = useState(null)
+  const [processing, setProcessing] = useState('')
+  const [disabled, setDisabled] = useState(true)
+  const [clientSecret, setClientSecret] = useState('')
+  const stripe = useStripe()
+  const elements = useElements()
   const [money, updateMoney] = useState(1)
 
   const payment = () =>{
@@ -28,10 +27,10 @@ export default function CheckoutForm() {
         body: JSON.stringify({items: [{ id: "xl-tshirt" }], money} )
       })
       .then(res => {
-        return res.json();
+        return res.json()
       })
       .then(data => {
-        setClientSecret(data.clientSecret);
+        setClientSecret(data.clientSecret)
       });
   }
   useEffect(async() => {
@@ -42,15 +41,15 @@ export default function CheckoutForm() {
         }
       });
       if (payload.error) {
-        setError(`Payment failed ${payload.error.message}`);
-        setProcessing(false);
+        setError(`Payment failed ${payload.error.message}`)
+        setProcessing(false)
       } else {
-        setError(null);
-        setProcessing(false);
-        setSucceeded(true);
+        setError(null)
+        setProcessing(false)
+        setSucceeded(true)
       }
     }
-  }, [clientSecret]);
+  }, [clientSecret])
 
   const cardStyle = {
     style: {
@@ -72,12 +71,12 @@ export default function CheckoutForm() {
   const handleChange = async (event) => {
     // Listen for changes in the CardElement
     // and display any errors as the customer types their card details
-    setDisabled(event.empty);
-    setError(event.error ? event.error.message : "");
+    setDisabled(event.empty)
+    setError(event.error ? event.error.message : "")
   };
   const handleSubmit = async ev => {
-    ev.preventDefault();
-    setProcessing(true);
+    ev.preventDefault()
+    setProcessing(true)
     payment()
    
   };
@@ -118,18 +117,10 @@ export default function CheckoutForm() {
       )}
       {/* Show a success message upon completion */}
       <p className={succeeded ? "result-message" : "result-message hidden"}>
-        Payment succeeded, see the result in your
-        <a
-          href={`https://dashboard.stripe.com/test/payments`}
-        >
-          {" "}
-          Stripe dashboard.
-        </a> Refresh the page to pay again.
+        Payment succeeded. Thanks for your contribution!
       </p>
     </form>
-    
-     
-   
+
     </>
-  );
+  )
 }

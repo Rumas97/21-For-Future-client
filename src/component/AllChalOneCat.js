@@ -8,10 +8,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import imageOne from "../ecolifeImages/Battery.svg"
 
 
-//https://for-future.herokuapp.com
-//http://localhost:5005
-
-
 class AllChalOneCat extends Component {
 
     state={

@@ -6,7 +6,6 @@ import Clean from "../ecolifeImages/CleanMind.svg"
 import { Link } from 'react-router-dom'
 
 
-// <img className='home-image' src={EcoEducation} />
 class Homepage extends Component {
     render() {
         return (
