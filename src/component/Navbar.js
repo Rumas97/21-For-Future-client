@@ -9,7 +9,7 @@ function NavigationBar(props){
   const{onLogout}=props
   const {user} = props
   return(
-    <Navbar collapseOnSelect expand="lg" className="navbar" >
+    <Navbar  collapseOnSelect expand="lg" className="navbar" >
     <Navbar.Brand> <Link className="navbar-links" to="/"> Home </Link> </Navbar.Brand>
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
     <Navbar.Collapse id="responsive-navbar-nav">

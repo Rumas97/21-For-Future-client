@@ -143,11 +143,24 @@ form {
     }
 }
 
+<<<<<<< HEAD
 .newButtonOne:hover{
     
     box-shadow: 0px 3px 5px rgba(0,0,0,.4);
     color: black
 } 
+=======
+ .newButtonOne:hover{
+    /* transition: all .5s;
+    transform: rotate(-3deg) scale(1.1); */
+    box-shadow: 0px 3px 5px rgba(0,0,0,.4);
+    color: black
+}
+ .newButtonOne:hover span{
+    animation-play-state: paused;
+} 
+
+>>>>>>> 8c0429d6e818970715bb2edb95797aca8334c79c
 
 .wrapper {
     /*This part is important for centering*/

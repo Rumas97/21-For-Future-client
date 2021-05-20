@@ -10,6 +10,9 @@ body{
 
 .navbar{
     background-color:white;
+    padding:5px;
+    box-shadow: 1px 1px 5px 0 rgb(102, 100, 100);
+    margin-bottom: 70px;
 }
 
 .navbar-links{
@@ -20,6 +23,13 @@ body{
 
 }
 
+
+.heading{
+    box-sizing: border-box;
+    background-color:#ffffff;
+    padding:10px;
+    /* box-shadow: 1px 1px 5px 0 rgb(102, 100, 100); */
+}
 
 
 .navbar-links:hover{
