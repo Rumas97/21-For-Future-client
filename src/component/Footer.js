@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import "./Footer.css"
 
 class Footer extends Component {
@@ -7,7 +6,7 @@ class Footer extends Component {
         return (
             
                <footer>
-                   <p>Made with ❤️ by <Link to ="https://github.com/Ragar23">Raquel</Link> and <Link to ="https://github.com/Rumas97">Rutul</Link>  🌳</p>
+                   <p>Made with ❤️ by <a href ="https://github.com/Ragar23">Raquel</a> and <a href="https://github.com/Rumas97">Rutul</a>  🌳</p>
                </footer>
             
         )
