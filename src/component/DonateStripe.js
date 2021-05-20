@@ -15,7 +15,7 @@ class DonateStripe extends Component {
             <div>
                 <section> 
                     <div > 
-                        <h1>DONATE</h1>
+                        <h1>DONATE</h1> 
                         <h2>Contribute to the cause</h2>
     
                         <br></br>

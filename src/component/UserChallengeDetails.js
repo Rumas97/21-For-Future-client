@@ -103,10 +103,7 @@ class UserChallengeDetails extends Component {
                 <img src={userchallengeDetails.challengeImage} alt="challenge images"/>
 
                 <button className="deleteProfButton" onClick={()=> this.handleQuitChallenge(userchallengeDetails)} > Quit the challenge
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>  
+                    
                 </button>
 
                 <p>{dayToDisplay.description}</p>
@@ -114,10 +111,7 @@ class UserChallengeDetails extends Component {
              
                 <div>
                     <button class="newButtonOne" onClick={()=> this.handleDaysDone(dayToDisplay)  } > Check 
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
+                                        
                                        
                     </button> 
                 </div>    

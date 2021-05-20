@@ -57,10 +57,7 @@ class Profile extends Component {
                 <h1> Hey {user.username} ! Welcome to your profile 🌳</h1>
                 <Link to="/challenges" > 
                     <button className="newButtonOne">Browse Challenges 
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                        
                     </button> 
                 </Link>
                 
@@ -87,18 +84,13 @@ class Profile extends Component {
                
                 <Link to={`/profile/${user._id}`}> 
                     <button className="newButtonOne">Edit Profile
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                       
                     </button> 
                 </Link>
                 <br/>
                 <br/>
-                 <button onClick={()=>{onDelete(user._id)}} className="deleteProfButton">Delete your account <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span></button>
+                 <button onClick={()=>{onDelete(user._id)}} className="deleteProfButton">Delete your account 
+                                        </button>
               
 
             </div>

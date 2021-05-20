@@ -14,6 +14,7 @@ import EditProfile from './component/EditProfile'
 import Homepage from './component/Homepage'
 import DonateStripe from './component/DonateStripe'
 import UserChallengeDetails from './component/UserChallengeDetails'
+import NotFound from './component/NotFound'
 
 
 
@@ -267,6 +268,7 @@ class App extends Component {
             return <UserChallengeDetails user={user} {...routeProps} />
           }} />
 
+          <Route exact path="/not-found" component={NotFound} />
 
 
            
