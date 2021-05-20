@@ -1,14 +1,10 @@
+  
 import React from 'react'
 import TextField from '@material-ui/core/TextField'
 import { makeStyles } from '@material-ui/core/styles'
 import {Link} from "react-router-dom"
-<<<<<<< HEAD
-import GoogleButton from './GoogleButton';
-import "./Login.css"
-=======
 import GoogleButton from './GoogleButton'
 
->>>>>>> 90ae44e8b295e39e13686bb36bc81d0240f3383d
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,7 +20,6 @@ export default function Login(props) {
   const {onLogin, error,onGoogleFailure, onGoogleSuccess} = props
 
   return (
-    <>
     <form className={classes.root} onSubmit={onLogin} noValidate autoComplete="off">
         <div>
             <h1> Log in Page </h1>
@@ -60,15 +55,6 @@ export default function Login(props) {
         
 
     </form>
-        
-    </>
 
   )
 }
-
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 90ae44e8b295e39e13686bb36bc81d0240f3383d
-

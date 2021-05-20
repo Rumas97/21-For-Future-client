@@ -92,7 +92,7 @@ export default function CheckoutForm() {
 
   return (
     <>
-    <h3> Enter your donation below</h3>
+    <h2> Enter your donation below</h2>
       <div  className="donationInput" >  <input  type="number" min="0" onChange={handleDonation} placeholder="0€" ></input> </div> 
     
     <form id="payment-form" onSubmit={handleSubmit}>

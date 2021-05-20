@@ -5,6 +5,7 @@ import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import {Link} from "react-router-dom"
 
+import "./Profile.css"
 
 
 
@@ -98,16 +99,20 @@ class EditProfile extends Component {
                     <input type="file" 
                     name="imageUrl" 
                     accept="image/png, image/jpg"/>
-                    
+                    <br/>
+                    <br/>
                     <Button onSubmit={this.handlePictureChange} value={userProfile.profilePic} type="submit">Submit picture</Button>
                 </form>
+                <br/>
                 <button type="submit"  className="newButtonOne" onClick={()=>{onEdit(editedProfile)}} >Submit Changes
                                             <span></span>
                                             <span></span>
                                             <span></span>
                                             <span></span>
+                <br/>
                 </button>
-                <br></br>
+                <br/>
+               
                 <Link to="/profile"> Go back! </Link>
             </div>
             

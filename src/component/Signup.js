@@ -55,15 +55,15 @@ export default function Signup(props) {
           <span></span>
           <span></span>
         </button>
+    
+        <br/>
+        <p>or</p>
+    
         <GoogleButton onSuccess={onGoogleSuccess} onFailure={onGoogleFailure} /> 
     </form>
-
+    <br/>
     
     <h1 class="black-lives-matter">#SAVE THE PLANET</h1>
     </>
   )
 }
-
-
-
-

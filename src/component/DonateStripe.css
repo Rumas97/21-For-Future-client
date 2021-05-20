@@ -1,5 +1,5 @@
 .wwfImg{
-    height: 200px;
+    height: 180px;
     width: 360px;
    
 }
@@ -12,8 +12,26 @@
 
 
 
+
+
+#donation-section{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+
+
+}
+
+#donation-section>div{
+ 
+  padding: 0px 40px 0px 40px
+}
+
+  
+
+
 #partOne{
-    background-color: #b7ff5a;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,7 +47,7 @@
 }
 
 #partThree{
-    background-color: #b7ff5a;
+   
     padding: 5px 20px 20px 20px;
 }
 

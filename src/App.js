@@ -257,15 +257,9 @@ class App extends Component {
           <Route exact path="/user-challenge/:id" render={(routeProps)=>{
             return <UserChallengeDetails user={user} {...routeProps} />
           }} />
-<<<<<<< HEAD
 
-          <Route exact path="/not-found" component={NotFound} />
-
-
-           
-=======
+          <Route component={NotFound} />
  
->>>>>>> 90ae44e8b295e39e13686bb36bc81d0240f3383d
           </Switch>
       </div>
     )

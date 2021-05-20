@@ -4,7 +4,6 @@ import "./Profile.css"
 import axios from "axios"
 import config from "../config"
 import avatar from "../otherImages/avatar.png"
-import picture from "../ecolifeImages/EcoBag.svg"
 
 class Profile extends Component {
 
@@ -22,23 +21,23 @@ class Profile extends Component {
             this.setState({
                 userChallenges: response.data,
                 image: true,
-                loggedGoogle: response.data
+                
                 
             })
         })
         .catch((err)=>{
             console.log('we dont see the user challenges')
         })
-        }
+        
 
-
+    }
 
 
     render() {
         const {userChallenges} = this.state
         const {user, onDelete}=this.props     
    
-        if(!user || !userChallenges || !loggedGoogle){
+        if(!user || !userChallenges){
             return <h2>Loading ...</h2>
         }
         
@@ -77,7 +76,6 @@ class Profile extends Component {
                     </div>
 
                 </div>
-                <img className="profile-deco" src={picture} />
             </div>
         )
     }
