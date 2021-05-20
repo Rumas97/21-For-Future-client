@@ -16,6 +16,7 @@ import DonateStripe from './component/DonateStripe'
 import UserChallengeDetails from './component/UserChallengeDetails'
 import ServerError from './component/ServerError'
 import Footer from './component/Footer'
+import NotFound from './component/NotFound'
 
 
 
@@ -263,6 +264,7 @@ class App extends Component {
           
 
           <Route component={ServerError}/>
+          <Route component={NotFound} />
  
           </Switch>
           <br></br>

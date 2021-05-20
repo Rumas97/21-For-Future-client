@@ -1,0 +1,8 @@
+.all-challenges{
+    display: flex;
+    flex-direction:row ;
+    flex-direction: wrap;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}

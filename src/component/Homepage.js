@@ -11,7 +11,7 @@ class Homepage extends Component {
         return (
             <div className='home-page'>   
                 
-                <div id="homePageImage">
+                <div>
                      <h1 className="LogoName">21 FOR FUTURE</h1>
 
                      <div class="wrapper">

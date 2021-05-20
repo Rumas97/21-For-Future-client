@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button'
 import Card from "react-bootstrap/Card"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import imageOne from "../ecolifeImages/Battery.svg"
+import "./AllChalOneCat.css"
 
 
 class AllChalOneCat extends Component {
@@ -29,29 +30,35 @@ class AllChalOneCat extends Component {
         const{challenges}= this.state
         let categoryChallenges = this.props.match.params.category
         return (
-            <div>
+            <>
+                 <h1> Check the challenges for this category </h1>
+  
+                <div className="all-challenges">
                 
-               {
-                   challenges.map((oneChallenge,index)=>{
-                        return <div key={index}>
+                
+                    {
+                        challenges.map((oneChallenge,index)=>{
+                                return <div key={index}>
+                                
+
+                                
+                                    <Card  style={{ width: '18rem' }}>
+                                        <Card.Img variant="top" src={oneChallenge.challengeImage} alt="eco ilustration" />
+                                        <Card.Body>
+                                        <Button variant="default"> <Link to={`/challenges/${categoryChallenges}/${oneChallenge._id}`}><h3 className="anchorAllChall">{oneChallenge.challengeName}</h3></Link>   </Button>
+                                           
+                                        </Card.Body>
+                                    </Card>
+                                
+                            </div>
+                        })
                         
-                        <Card style={{ width: '18rem' }}>
-                            <Card.Img variant="top" src={imageOne} alt="eco ilustration" />
-                            <Card.Body>
-                            <Button variant="default"> <Link to={`/challenges/${categoryChallenges}/${oneChallenge._id}`}><h3 className="anchorAllChall">{oneChallenge.challengeName}</h3></Link>   </Button>
-                                <Card.Text>
-                                    Some quick example text to build on the card title and make up the bulk of
-                                    the card's content.
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-                       </div>
-                   })
-                   
-               } 
+                    } 
                
                 
-            </div>
+                </div>
+            </>
+
         )
     }
 }
