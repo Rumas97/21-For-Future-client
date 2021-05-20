@@ -16,9 +16,9 @@ class Profile extends Component {
 
     componentDidMount(){
 
-        const {loggedGoogle} = this.state
+        
 
-        if (!loggedGoogle){
+      
             axios.get(`${config.API_URL}/api/user-challenge/all-challenges`,{withCredentials:true})
         .then((response)=>{
             console.log("response from userChallenges to display")
@@ -26,14 +26,14 @@ class Profile extends Component {
             this.setState({
                 userChallenges: response.data,
                 image: true,
-                loggedGoogle: response.data
+                
                 
             })
         })
         .catch((err)=>{
             console.log('we dont see the user challenges')
         })
-        }
+        
 
     }
 
@@ -43,12 +43,13 @@ class Profile extends Component {
 
     
     render() {
-        const {userChallenges, loggedGoogle} = this.state
-        console.log(userChallenges) 
-        const {user, onDelete}=this.props     
+        const {userChallenges} = this.state
         
+        console.log("userChallenges", userChallenges) 
+        const {user, onDelete}=this.props     
+        console.log("user", user) 
    
-        if(!user || !userChallenges || !loggedGoogle){
+        if(!user || !userChallenges){
             return <h2>Loading ...</h2>
         }
         

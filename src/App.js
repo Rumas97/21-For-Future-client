@@ -23,7 +23,6 @@ class App extends Component {
     user: null,
     error: null,
     fetchingUser: true,
-    loggedInUser: null,
     showLoading: true
 
   }
@@ -183,8 +182,9 @@ class App extends Component {
   
     axios.post(`${config.API_URL}/api/google/info`, newUser , {withCredentials: true})
       .then((response) => {
+        console.log(response)
         this.setState({
-          loggedInUser: response.data.data,
+          user: response.data.data,
           error: null,
           showLoading: false
         }, () => {

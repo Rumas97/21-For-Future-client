@@ -66,13 +66,7 @@ class ChallengeDetails extends Component {
         return (
             <div>
                 <h1 className="heading">{challengeDetails.challengeName}</h1>
-                {
-                        user ? ( <button className="newButtonOne" onClick={this.handleStart}>Start
-                        {/* <span></span>
-                        <span></span>
-                        <span></span> */}
-                        </button>) : (<h5>Please login or signup to start this challenge</h5>) 
-                        }
+                
                 
                 <div className="block">                
                 
@@ -83,6 +77,8 @@ class ChallengeDetails extends Component {
                 
                     <br/>
                     <br/>
+
+                    
 
                     <div className="side-two">
 
@@ -103,7 +99,13 @@ class ChallengeDetails extends Component {
                         
                     </div>
 
-                    
+                    {
+                        user ? ( <button className="newButtonOne" onClick={this.handleStart}>Start
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        </button>) : (<h5>Please login or signup to start this challenge</h5>) 
+                        }
 
                 </div>
             </div>
