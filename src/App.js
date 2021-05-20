@@ -235,7 +235,7 @@ class App extends Component {
         <Switch>
           <Route exact path='/' component={Homepage}/>
           <Route exact path="/signup" render={(routeProps)=>{
-            return <Signup   onSubmit={this.handleSignUp} {...routeProps} /> 
+            return <Signup  onGoogleFailure={this.handleGoogleFailure} onGoogleSuccess={this.handleGoogleSuccess} onSubmit={this.handleSignUp} {...routeProps} /> 
           }}  />
          <Route exact path="/login" render={(routeProps)=>{
            return <Login onGoogleFailure={this.handleGoogleFailure} onGoogleSuccess={this.handleGoogleSuccess} error={error} onLogin={this.handleLogin} {...routeProps}  />
