@@ -9,18 +9,13 @@ class UserChallengeDetails extends Component {
         days:1,
         dayToDisplay:null,
         daysDone: [],
-        colorStatus:"#b7ff5a"
     }
 
     componentDidMount(){
         let userchallengeDetailsId= this.props.match.params.id
-        console.log("where is our USER ID ")
-        console.log(userchallengeDetailsId)
 
         axios.get(`${config.API_URL}/api/user-challenge/${userchallengeDetailsId}`, {withCredentials: true})
         .then((response)=>{
-            console.log(response.data)
-            console.log('component did mount for userChallenges')
             this.setState({
                 userchallengeDetails: response.data.challengeId,
                 dayToDisplay: response.data.challengeId.challengeDay[0],
@@ -31,35 +26,25 @@ class UserChallengeDetails extends Component {
     }
 
     handleDisplay=(day)=>{
-        console.log(day)
         this.setState({
             dayToDisplay:day,
-            
         })
     }
 
     handleDaysDone = (dayToDisplay) =>{
-        console.log(" Yummy!!!!")
-        console.log(dayToDisplay)
 
-        console.log(this.state.daysDone)
         let userchallengeDetailsId= this.props.match.params.id
-        console.log(userchallengeDetailsId)
+
         axios.patch(`${config.API_URL}/api/user-challenge/${userchallengeDetailsId}`, {
-            dayTracker: dayToDisplay.day   //maybe problem here
+            dayTracker: dayToDisplay.day   
            
         } , {withCredentials: true})
             .then((response)=>{
-                console.log("WE ARE HERE NOW")
-                console.log(response.data)
+
                 this.setState({
                         daysDone: [...response.data.dayTracker],
                      })
-                
-                
-                
-                console.log("new console for DAYS DONE")
-                console.log(this.state.daysDone)
+
             })
 
             .catch(()=>{
@@ -119,22 +104,11 @@ class UserChallengeDetails extends Component {
                     <div className="day-desc">
                         <h5>Day {dayToDisplay.day}</h5>
                         <p>{dayToDisplay.description}</p>
-                        <button class="newButtonOne" onClick={()=> this.handleDaysDone(dayToDisplay)  } > Check 
-                                        {/* <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span> */}
-                                       
-                        </button>
+                        <button class="newButtonOne" onClick={()=> this.handleDaysDone(dayToDisplay)  } > Check </button>
                     </div>
-
                 </div>  
 
-                <button className="deleteProfButton" onClick={()=> this.handleQuitChallenge(userchallengeDetails)} > Quit the challenge
-                    
-                </button>
-
-               
+                <button className="deleteProfButton" onClick={()=> this.handleQuitChallenge(userchallengeDetails)} > Quit the challenge</button>
             </div>
         )
           

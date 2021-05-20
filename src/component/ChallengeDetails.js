@@ -14,8 +14,6 @@ class ChallengeDetails extends Component {
 
     componentDidMount(){
         let challengeDetailsId= this.props.match.params.id
-        console.log("Is the ID undefined???")
-        console.log(challengeDetailsId)
         let categoryChallenges = this.props.match.params.category
 
         axios.get(`${config.API_URL}/api/challenges/${categoryChallenges}/${challengeDetailsId}`)
@@ -29,7 +27,6 @@ class ChallengeDetails extends Component {
     }
 
     handleDisplay=(day)=>{
-        //console.log(day)
         this.setState({
             dayToDisplay:day
         })
@@ -48,8 +45,6 @@ class ChallengeDetails extends Component {
                 userStartChallenge:null
             }, ()=>{
                 this.props.history.push(`/user-challenge/${_id}`)
-                console.log("newest console log")
-                console.log(this.props)
             })
         })
         .catch(()=>{console.log('user challenge did not start')})
@@ -58,7 +53,7 @@ class ChallengeDetails extends Component {
     render() {
         const {user} = this.props
         const {challengeDetails,dayToDisplay} = this.state
-        console.log(dayToDisplay)
+
         if (!challengeDetails || !dayToDisplay){
             return (<h1>...Loading</h1>)
         }

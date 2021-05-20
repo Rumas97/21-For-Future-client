@@ -76,17 +76,15 @@ class EditProfile extends Component {
         return (
             
             
-            <div className="edit-profile">    
-            <h1>Edit your profile </h1>
-            <br/>
+            <div className="edit-profile"> 
+            <h1>Edit your profile</h1>  
+            <br></br>
                 <TextField id="outlined-required"
                 type="text"
                 name="username"
                 placeholder='Enter username here'
                 variant="outlined" onChange={this.handleUsernameChange} value={userProfile.username} />
-
-                <br/>
-
+              <br></br>
                 <TextField
                 id="outlined-password-input"
                 type="password"
@@ -94,27 +92,22 @@ class EditProfile extends Component {
                 label="Password"
                 autoComplete="current-password"
                 variant="outlined" onChange={this.handlePasswordChange}  />
-
-<br/>  <h2> Enter your profile picture below</h2>
+                
+                <br></br>
                 <form  onSubmit ={onSubmitPicture} enctype="multipart/form-data">
                     <input type="file" 
                     name="imageUrl" 
                     accept="image/png, image/jpg"/>
                     
-                    <br/>
-                    <br/>
-                    <Button onSubmit={this.handlePictureChange} value={userProfile.profilePic} type="submit">Submit</Button>
+                    <Button onSubmit={this.handlePictureChange} value={userProfile.profilePic} type="submit">Submit picture</Button>
                 </form>
-                <br/>
-                
                 <button type="submit"  className="newButtonOne" onClick={()=>{onEdit(editedProfile)}} >Submit Changes
                                             <span></span>
                                             <span></span>
                                             <span></span>
                                             <span></span>
                 </button>
-                <br/>
-                <br/>
+                <br></br>
                 <Link to="/profile"> Go back! </Link>
             </div>
             

@@ -1,9 +1,14 @@
 import React from 'react'
-import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField'
+import { makeStyles } from '@material-ui/core/styles'
 import {Link} from "react-router-dom"
+<<<<<<< HEAD
 import GoogleButton from './GoogleButton';
 import "./Login.css"
+=======
+import GoogleButton from './GoogleButton'
+
+>>>>>>> 90ae44e8b295e39e13686bb36bc81d0240f3383d
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -58,10 +63,12 @@ export default function Login(props) {
         
     </>
 
-  );
+  )
 }
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 90ae44e8b295e39e13686bb36bc81d0240f3383d
 
-// export default Login

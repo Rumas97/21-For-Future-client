@@ -9,10 +9,6 @@ import imageOne from "../ecolifeImages/Battery.svg"
 import "./AllChalOneCat.css"
 
 
-//https://for-future.herokuapp.com
-//http://localhost:5005
-
-
 class AllChalOneCat extends Component {
 
     state={

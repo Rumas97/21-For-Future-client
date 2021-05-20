@@ -64,9 +64,6 @@ class App extends Component {
       password: password.value
     }
 
-    console.log("we are here")
-    console.log(newUser)
-
     axios.post(`${config.API_URL}/api/login`, newUser,  {withCredentials: true})
       .then((response)=>{
         this.setState({
@@ -183,7 +180,6 @@ class App extends Component {
   
     axios.post(`${config.API_URL}/api/google/info`, newUser , {withCredentials: true})
       .then((response) => {
-        console.log(response)
         this.setState({
           user: response.data.data,
           error: null,
@@ -197,10 +193,9 @@ class App extends Component {
 
   handleGoogleFailure = (error) => {
     //TODO: Handle these errors yourself the way you want. Currently the state is not in use
-    console.log(error) 
     this.setState({
       error,
-    }); 
+    })
   }
 
 
@@ -216,19 +211,14 @@ class App extends Component {
               fetchingUser: false,
   
             })
-
-            
         })
 
         .catch(()=>{console.log('did not mount correctly')})
-
-
   }
 
   render() {
 
     const {error, user} = this.state
-
 
     return (
       <div className='App'>
@@ -267,11 +257,15 @@ class App extends Component {
           <Route exact path="/user-challenge/:id" render={(routeProps)=>{
             return <UserChallengeDetails user={user} {...routeProps} />
           }} />
+<<<<<<< HEAD
 
           <Route exact path="/not-found" component={NotFound} />
 
 
            
+=======
+ 
+>>>>>>> 90ae44e8b295e39e13686bb36bc81d0240f3383d
           </Switch>
       </div>
     )

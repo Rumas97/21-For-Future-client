@@ -16,14 +16,9 @@ class Profile extends Component {
     }
 
     componentDidMount(){
-
-        const {loggedGoogle} = this.state
-
-        if (!loggedGoogle){
-            axios.get(`${config.API_URL}/api/user-challenge/all-challenges`,{withCredentials:true})
+    
+        axios.get(`${config.API_URL}/api/user-challenge/all-challenges`,{withCredentials:true})
         .then((response)=>{
-            console.log("response from userChallenges to display")
-            console.log(response.data)
             this.setState({
                 userChallenges: response.data,
                 image: true,
@@ -36,18 +31,12 @@ class Profile extends Component {
         })
         }
 
-    }
 
-    
 
-    // <img className="profile-image"  src={user.profilePic} alt= {user.username} />  ORIGINAL STATE 
 
-    
     render() {
-        const {userChallenges, loggedGoogle} = this.state
-        console.log(userChallenges) 
+        const {userChallenges} = this.state
         const {user, onDelete}=this.props     
-        
    
         if(!user || !userChallenges || !loggedGoogle){
             return <h2>Loading ...</h2>
@@ -66,14 +55,10 @@ class Profile extends Component {
                         <p>Email: {user.email}</p>
                         <div>
                             <Link to={`/profile/${user._id}`}> 
-                                <button className="newButtonOne">Edit Profile
-                                 
-                                </button> 
+                                <button className="newButtonOne">Edit Profile</button> 
                             </Link>
                             <br/>
-                            <button onClick={()=>{onDelete(user._id)}} className="deleteProfButton">Delete your account 
-                                                   
-                            </button>
+                            <button onClick={()=>{onDelete(user._id)}} className="deleteProfButton">Delete your account </button>
                         </div>
                     </div>
                     
@@ -87,11 +72,10 @@ class Profile extends Component {
                             }               
                         </h3>
                         <Link to="/challenges" > 
-                            <button className="newButtonOne">Browse Challenges</button> 
-                           
+                            <button className="newButtonOne">Browse Challenges </button> 
                         </Link>
                     </div>
-    
+
                 </div>
                 <img className="profile-deco" src={picture} />
             </div>
